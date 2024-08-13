@@ -56,6 +56,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'erb_lint', require: false
   gem 'rubocop-fjord', require: false
   gem 'rubocop-rails', require: false
 
