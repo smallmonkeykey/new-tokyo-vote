@@ -1,0 +1,14 @@
+<h1>飯王に登録</h1>
+
+<%= form_with model: @entry, url: entries_path do |form| %>
+  <%= form.label :nickname, "名前" %>
+  <%= form.text_field :nickname %>
+
+  <%= form.label :title, "食べ物の名前" %>
+  <%= form.text_field :title %>
+
+  <%= form.label :image, "食べ物の写真" %>
+  <%= form.file_field :image %>
+
+  <%= form.submit "登録する" %>
+<% end %>
