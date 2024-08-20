@@ -10,11 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_08_19_013332) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_20_113837) do
   create_table "categories", force: :cascade do |t|
     t.string "category_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "entries", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "category_id", null: false
+    t.string "nickname"
+    t.string "title"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_entries_on_category_id"
+    t.index ["user_id"], name: "index_entries_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "entries", "categories"
+  add_foreign_key "entries", "users"
 end
