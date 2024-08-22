@@ -10,5 +10,7 @@
   <%= form.label :image, "お酒の写真" %>
   <%= form.file_field :image %>
 
+  <%= form.hidden_field :category_id, value: @category.id %>
+
   <%= form.submit "登録する" %>
 <% end %>
