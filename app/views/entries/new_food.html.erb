@@ -1,11 +1,33 @@
 <h1>飯王に登録</h1>
 
-<%= form_with model: @entry, url: entries_path do |form| %>
-  <%= form.label :nickname, "名前" %>
-  <%= form.text_field :nickname %>
+<!----
+<% if @entry.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@entry.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @entry.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+--->
 
-  <%= form.label :title, "食べ物の名前" %>
-  <%= form.text_field :title %>
+<% if flash[:error] %>
+  <div class="alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+
+
+<%= form_with model: @entry,url: entries_path do |form| %>
+    <%= form.label :nickname, "名前" %>
+    <%= form.text_field :nickname %>
+
+    <%= form.label :title, "食べ物の名前" %>
+    <%= form.text_field :title %>
 
   <%= form.label :image, "食べ物の写真" %>
   <%= form.file_field :image %>

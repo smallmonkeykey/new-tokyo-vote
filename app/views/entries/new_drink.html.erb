@@ -1,5 +1,26 @@
 <h1>酒王に登録</h1>
 
+<!----
+<% if @entry.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@entry.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @entry.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+--->
+
+<% if flash[:error] %>
+  <div class="alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+
 <%= form_with model: @entry, url: entries_path do |form| %>
   <%= form.label :nickname, "名前" %>
   <%= form.text_field :nickname %>
