@@ -24,7 +24,7 @@ class EntriesController < ApplicationController
       Rails.logger.debug(@entry.errors.full_messages)
       flash[:error] = @entry.errors.full_messages.to_sentence
       category = params[:category]
-      redirect_to new_entry_path(category: category), status: :unprocessable_entity
+      redirect_to new_entry_path(category:), status: :unprocessable_entity
     end
   end
 

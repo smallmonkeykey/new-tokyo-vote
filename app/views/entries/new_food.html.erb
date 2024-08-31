@@ -1,20 +1,5 @@
 <h1>飯王に登録</h1>
 
-<!----
-<% if @entry.errors.any? %>
-  <div id="error_explanation">
-    <div class="alert alert-danger">
-      The form contains <%= pluralize(@entry.errors.count, "error") %>.
-    </div>
-    <ul>
-    <% @entry.errors.each do |error| %>
-      <li><%= error.full_message %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
---->
-
 <% if flash[:error] %>
   <div class="alert alert-danger">
     <%= flash[:error] %>
