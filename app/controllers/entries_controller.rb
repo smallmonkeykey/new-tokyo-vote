@@ -17,7 +17,7 @@ class EntriesController < ApplicationController
   end
 
   def create
-    @entry = Entry.new(entry_params)
+    @entry = current_user.entries.new(entry_params)
     if @entry.save
       redirect_to entries_completions_path
     else
