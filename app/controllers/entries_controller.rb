@@ -21,7 +21,6 @@ class EntriesController < ApplicationController
     if @entry.save
       redirect_to entries_completions_path
     else
-      puts @entry.errors.full_messages
       render :new
     end
   end

@@ -11,6 +11,15 @@
   </head>
 
   <body>
+    <header>
+      <nav>
+        <ul>
+          <% if logged_in? %>
+            <li><%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete } %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
@@ -18,5 +27,6 @@
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
     <%= yield %>
+    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>
