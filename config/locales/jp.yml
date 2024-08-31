@@ -1,0 +1,6 @@
+ja:
+  activerecord:
+    attributes:
+      entry:
+        nickname: 名前
+        title: タイトル

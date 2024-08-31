@@ -17,11 +17,14 @@ class EntriesController < ApplicationController
   end
 
   def create
-    @entry = Entry.new(entry_params)
+    @entry = current_user.entries.new(entry_params)
     if @entry.save
       redirect_to entries_completions_path
     else
-      render :new
+      Rails.logger.debug(@entry.errors.full_messages)
+      flash[:error] = @entry.errors.full_messages.to_sentence
+      category = params[:category]
+      redirect_to new_entry_path(category:), status: :unprocessable_entity
     end
   end
 

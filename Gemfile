@@ -79,3 +79,4 @@ end
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
+gem 'rails-i18n'
