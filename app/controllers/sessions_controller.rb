@@ -14,6 +14,6 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    redirect_to login_path, notice: 'ログアウトしました'
+    redirect_to login_path, status: :see_other, notice: 'ログアウトしました'
   end
 end
