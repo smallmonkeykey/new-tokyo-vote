@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class VoteController < ApplicationController
+class VotesController < ApplicationController
   def categories; end
 
   def completions; end

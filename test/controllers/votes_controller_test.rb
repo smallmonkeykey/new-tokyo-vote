@@ -2,14 +2,14 @@
 
 require 'test_helper'
 
-class VoteControllerTest < ActionDispatch::IntegrationTest
+class VotesControllerTest < ActionDispatch::IntegrationTest
   test 'should get categories' do
-    get vote_categories_url
+    get votes_categories_url
     assert_response :success
   end
 
   test 'should get completions' do
-    get vote_completions_url
+    get votes_completions_url
     assert_response :success
   end
 end

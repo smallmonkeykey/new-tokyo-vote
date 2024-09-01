@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'vote/categories'
-  get 'vote/completions'
+  get 'votes/categories'
+  get 'votes/completions'
   root 'home#index'
 
   resources :entries, only: [:new, :create, :index, :show]
