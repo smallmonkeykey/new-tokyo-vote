@@ -2,8 +2,9 @@
   <p><%= @entry.nickname %></p>
   <p><%= @entry.title %></p>
 
-<%= form_with model: @vote do |f| %>
-  <%= f.label :comment , "コメントを記入する(自由)" %>
-  <%= f.text_area :comment, rows: 5 %>
-  <%= f.submit '投票する'%>
+<%= form_with model: @vote, url: votes_path do |form| %>
+  <%= form.label :comment , "コメントを記入する(自由)" %>
+  <%= form.text_area :comment, rows: 5 %>
+  <%= form.hidden_field :entry_id, value: @entry.id %>
+  <%= form.submit '投票する' %>
 <% end %>
