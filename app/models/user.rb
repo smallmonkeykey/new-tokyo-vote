@@ -2,6 +2,7 @@
 
 class User < ApplicationRecord
   has_many :entries, dependent: :destroy
+  has_many :votes, dependent: :destroy
 
   def self.find_or_create_from_auth_hash!(auth_hash)
     provider = auth_hash[:provider]
