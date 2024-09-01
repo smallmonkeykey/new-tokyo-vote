@@ -37,7 +37,10 @@ class EntriesController < ApplicationController
     render_template(category)
   end
 
-  def show; end
+  def show
+    @entry = Entry.find(params[:id])
+    @category = params[:category]
+  end
 
   private
 

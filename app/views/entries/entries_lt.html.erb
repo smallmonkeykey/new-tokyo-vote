@@ -6,6 +6,7 @@
       <li>
         <%= entry.nickname %></strong><br>
         <%= entry.title %>
+        <%= link_to '選択する', entry_path(entry, category: 'lt') %>
       </li>
     <% end %>
   </ul>

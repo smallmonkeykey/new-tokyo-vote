@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get 'home/index'
-  get 'votes/categories'
-  get 'votes/completions'
+  get 'votes/categories', to: 'votes#categories'
+  get 'votes/completions', to: 'votes#completions'
   get 'entries/categories', to: 'entries#categories'
   get 'entries/completions', to: 'entries#completions'
   get 'auth/:provider/callback', to: 'sessions#create'
