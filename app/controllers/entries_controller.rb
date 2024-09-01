@@ -30,9 +30,27 @@ class EntriesController < ApplicationController
 
   def completions; end
 
+  def index
+    category = params[:category]
+    category_id = Category.find_by(category_name: category).id
+    @entries = Entry.where(category_id:)
+    render_template(category)
+  end
+
   private
 
   def entry_params
     params.require(:entry).permit(:nickname, :title, :image, :category_id)
+  end
+
+  def render_template(category)
+    case category
+    when 'food'
+      render 'entries_food'
+    when 'drink'
+      render 'entries_drink'
+    when 'lt'
+      render 'entries_lt'
+    end
   end
 end

@@ -1,2 +1,7 @@
-<h1>Votes#categories</h1>
-<p>Find me in app/views/votes/categories.html.erb</p>
+<h1>投票する</h1>
+<h2>飯王に投票する</h2>
+<%= link_to "飯王に登録", entries_path(category: 'food') %>
+<h2>酒王に投票する</h2>
+<%= link_to "酒王に登録", entries_path(category: 'drink') %>
+<h2>LT王に投票する</h2>
+<%= link_to "LT王に登録", entries_path(category: 'lt') %>

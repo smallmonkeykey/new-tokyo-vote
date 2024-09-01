@@ -1,0 +1,14 @@
+<h1>選択する</h1>
+
+<% if @entries.present? %>
+  <ul>
+    <% @entries.each do |entry| %>
+      <li>
+        <%= entry.nickname %></strong><br>
+        <%= entry.title %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>エントリーされていません</p>
+<% end %>
