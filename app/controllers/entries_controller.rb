@@ -37,6 +37,8 @@ class EntriesController < ApplicationController
     render_template(category)
   end
 
+  def show; end
+
   private
 
   def entry_params

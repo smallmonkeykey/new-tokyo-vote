@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
-  get 'votes/categories'
-  get 'votes/completions'
   root 'home#index'
 
-  resources :entries, only: [:new, :create, :index, :show]
-  resources :votes, only: [:create]
-
   get 'home/index'
+  get 'votes/categories'
+  get 'votes/completions'
   get 'entries/categories', to: 'entries#categories'
   get 'entries/completions', to: 'entries#completions'
   get 'auth/:provider/callback', to: 'sessions#create'
   get '/login', to: 'sessions#new'
   delete '/logout' => 'sessions#destroy'
+
+  resources :entries, only: [:new, :create, :index, :show]
+  resources :votes, only: [:create]
 end
