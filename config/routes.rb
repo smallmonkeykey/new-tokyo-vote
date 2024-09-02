@@ -12,5 +12,5 @@ Rails.application.routes.draw do
 
   resources :entries, only: [:new, :create, :index, :show]
   resources :votes, only: [:create]
-  resources :ranking, only: [:index]
+  resources :rankings, only: [:index]
 end
