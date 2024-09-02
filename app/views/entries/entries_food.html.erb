@@ -1,0 +1,15 @@
+<h1>選択する</h1>
+
+<% if @entries.present? %>
+  <ul>
+    <% @entries.each do |entry| %>
+      <li>
+        <%= entry.nickname %><br>
+        <%= entry.title %>
+        <%= link_to '選択する', entry_path(entry, category: 'food') %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>エントリーされていません</p>
+<% end %>
