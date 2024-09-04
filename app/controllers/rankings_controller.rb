@@ -2,7 +2,9 @@
 
 class RankingsController < ApplicationController
   def index
-    @rankings = Vote.rankng_by_single('food')
-    @rankings_total = Vote.ranking_by_total_votes('food')
+    @category = params[:category].presence || 'food'
+
+    @rankings = Vote.rankng_by_single(@category)
+    @rankings_total = Vote.ranking_by_total_votes(@category)
   end
 end
