@@ -1,3 +1,15 @@
 <h1>ランキング</h1>
 
+<h2>単品王</h2>
+<% @rankings.each do |ranking| %>
+  <p><%= ranking.votes_count %>票</p>
+  <p><%= ranking.title %></p>
+  <p><%= ranking.nickname %></p>
+<% end %>
 
+<h2>合算王</h2>
+<% @rankings_total.each do |ranking| %>
+  <p><%= ranking.votes_count %>票</p>
+  <p><%= ranking.titles %></p>
+  <p><%= ranking.nickname %></p>
+<% end %>

@@ -70,6 +70,13 @@ entries = Entry.create!(
       nickname: '野口英世',
       title: '元気が出るパスタ',
       image: nil
+    },
+    {
+      user_id: users[0].id,
+      category_id: categories[0].id,
+      nickname: '安藤忠雄',
+      title: 'クッキー',
+      image: nil
     }
   ]
 )
@@ -114,6 +121,41 @@ Vote.create!(
     {
       user_id: users[1].id,
       entry_id: entries[1].id,
+      comment: '大好きです'
+    },
+    {
+      user_id: users[1].id,
+      entry_id: entries[4].id,
+      comment: '大好きです'
+    },
+    {
+      user_id: users[2].id,
+      entry_id: entries[4].id,
+      comment: '大好きです'
+    },
+    {
+      user_id: users[3].id,
+      entry_id: entries[4].id,
+      comment: '大好きです'
+    },
+    {
+      user_id: users[2].id,
+      entry_id: entries[4].id,
+      comment: '大好きです'
+    },
+    {
+      user_id: users[1].id,
+      entry_id: entries[0].id,
+      comment: '大好きです'
+    },
+    {
+      user_id: users[2].id,
+      entry_id: entries[0].id,
+      comment: '大好きです'
+    },
+    {
+      user_id: users[3].id,
+      entry_id: entries[0].id,
       comment: '大好きです'
     }
   ]
