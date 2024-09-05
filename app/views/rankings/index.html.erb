@@ -1,0 +1,28 @@
+<h1>投票結果</h1>
+
+<div>
+  <%= link_to 'Food', rankings_path(category: 'food') %>
+  <%= link_to 'Drink', rankings_path(category: 'drink') %>
+  <%= link_to 'LT', rankings_path(category: 'lt') %>
+</div>
+
+<h2>単品王</h2>
+<% @rankings.each do |ranking| %>
+  <p><%= ranking.votes_count %>票</p>
+  <p><%= ranking.title %></p>
+  <p><%= ranking.nickname %></p>
+<% end %>
+
+<% if @category != 'lt' %>
+  <h2>合算王</h2>
+  <% @rankings_total.each do |ranking| %>
+    <p><%= ranking.votes_count %>票</p>
+    <p><%= ranking.titles %></p>
+    <p><%= ranking.nickname %></p>
+  <% end %>
+<% end %>
+
+<% @comments.each do |comment| %>
+  <p><%= comment.nickname %>さんへ</p>
+  <p><%= comment.comment %></p>
+<% end %>
