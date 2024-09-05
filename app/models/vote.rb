@@ -23,4 +23,11 @@ class Vote < ApplicationRecord
       .order('votes_count DESC')
       .limit(3)
   end
+
+  def self.fetch_comment(category_name)
+    joins(entry: :category)
+      .where(categories: { category_name: })
+      .select('entries.id AS entry_id, entries.nickname AS nickname, votes.comment AS comment')
+      .order('entries.user_id')
+  end
 end

@@ -6,5 +6,6 @@ class RankingsController < ApplicationController
 
     @rankings = Vote.rankng_by_single(@category)
     @rankings_total = Vote.ranking_by_total_votes(@category)
+    @comments = Vote.fetch_comment(@category)
   end
 end
