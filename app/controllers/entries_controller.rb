@@ -18,7 +18,6 @@ class EntriesController < ApplicationController
     if @entry.save
       redirect_to entries_completions_path
     else
-      Rails.logger.debug(@entry.errors.full_messages)
       flash[:error] = @entry.errors.full_messages.to_sentence
       category = params[:category]
       redirect_to new_entry_path(category:), status: :unprocessable_entity
@@ -45,16 +44,6 @@ class EntriesController < ApplicationController
     params.require(:entry).permit(:nickname, :title, :image, :category_id)
   end
 
-  # def render_template(category)
-  #   case category
-  #   when 'food'
-  #     render 'entries_food'
-  #   when 'drink'
-  #     render 'entries_drink'
-  #   when 'lt'
-  #     render 'entries_lt'
-  #   end
-  # end
   def render_template(category, action_name)
     case category
     when 'food'
