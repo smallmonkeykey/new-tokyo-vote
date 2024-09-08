@@ -6,7 +6,7 @@ class Vote < ApplicationRecord
 
   validates :comment, length: { maximum: 300 }
 
-  def self.rankng_by_single(category_name)
+  def self.ranking_by_single(category_name)
     joins(entry: :category)
       .where(categories: { category_name: })
       .select('entries.id AS entry_id, COUNT(votes.id) AS votes_count, entries.title AS title, entries.nickname AS nickname')

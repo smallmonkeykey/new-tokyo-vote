@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class EntriesController < ApplicationController
-  include SessionsHelper
+  include AdminHelper
   before_action :require_admin, only: [:new], if: proc { params[:category] == 'lt' }
 
   def categories; end

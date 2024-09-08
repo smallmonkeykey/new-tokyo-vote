@@ -1,0 +1,43 @@
+<h1>管理者用ランキング一覧ページ</h1>
+
+<% @rankings.each do |category, rankings| %>
+  <h2><%= category %> 単品王</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>タイトル</th>
+        <th>名前</th>
+        <th>票数</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% rankings[:single].each do |entry| %>
+        <tr>
+          <td><%= entry.title %></td>
+          <td><%= entry.nickname %></td>
+          <td><%= entry.votes_count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <h2><%= category %> 合算王</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>タイトル</th>
+        <th>名前</th>
+        <th>票数</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% rankings[:total].each do |entry| %>
+        <tr>
+          <td><%= entry.titles %></td>
+          <td><%= entry.nickname %></td>
+          <td><%= entry.votes_count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
