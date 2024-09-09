@@ -27,6 +27,7 @@ class Vote < ApplicationRecord
   def self.fetch_comment(category_name)
     joins(entry: :category)
       .where(categories: { category_name: })
+      .where.not(votes: { comment: [nil, ''] })
       .select('entries.id AS entry_id, entries.nickname AS nickname, votes.comment AS comment')
       .order('entries.user_id')
   end
