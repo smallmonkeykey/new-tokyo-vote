@@ -1,17 +1,15 @@
 <div class="text-center">
-<h1 class="text-3xl font-bold">投票する</h1>
-<h2 class="mt-8 text-2xl pb-5">飯王に投票する</h2>
-<%= link_to entries_path(category: 'food'), class: 'inline-flex items-center justify-center w-12 h-12 bg-blue-500 text-white rounded-full hover:bg-blue-700' do %>
-  <i class="fa-solid fa-utensils"></i>
-<% end %>
-
-<h2 class="mt-8 text-2xl pb-5">酒王に投票する</h2>
-<%= link_to entries_path(category: 'drink'), class: 'inline-flex items-center justify-center w-12 h-12 bg-blue-500 text-white rounded-full hover:bg-blue-700' do %>
-  <i class="fa-solid fa-wine-glass"></i>
-<% end %>
-
-<h2 class="mt-8 text-2xl pb-5">LT王に投票する</h2>
-<%= link_to entries_path(category: 'lt'), class: 'inline-flex items-center justify-center w-12 h-12 bg-blue-500 text-white rounded-full hover:bg-blue-700' do %>
-  <i class="fa-solid fa-bolt"></i>
-<% end %>
+  <h1 class="text-3xl font-bold">投票する</h1>
+  <h2 class="mt-8 text-2xl pb-5">飯王に投票する</h2>
+  <%= link_to entries_path(category: 'food'), class: 'inline-flex items-center justify-center w-12 h-12 bg-blue-500 text-white rounded-full hover:bg-blue-700' do %>
+    <i class="fa-solid fa-utensils"></i>
+  <% end %>
+  <h2 class="mt-8 text-2xl pb-5">酒王に投票する</h2>
+  <%= link_to entries_path(category: 'drink'), class: 'inline-flex items-center justify-center w-12 h-12 bg-blue-500 text-white rounded-full hover:bg-blue-700' do %>
+    <i class="fa-solid fa-wine-glass"></i>
+  <% end %>
+  <h2 class="mt-8 text-2xl pb-5">LT王に投票する</h2>
+  <%= link_to entries_path(category: 'lt'), class: 'inline-flex items-center justify-center w-12 h-12 bg-blue-500 text-white rounded-full hover:bg-blue-700' do %>
+    <i class="fa-solid fa-bolt"></i>
+  <% end %>
 </div>
