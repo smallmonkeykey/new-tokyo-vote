@@ -21,14 +21,14 @@
         </div>
       </nav>
     </header>
-    <div class="container mx-auto mt-4">
+      <div class="container mx-auto mt-4 text-center">
       <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
+        <p class="bg-red-500 text-white p-4 rounded-md max-w-md mx-auto"><%= notice %></p>
       <% end %>
       <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
+        <p class="bg-red-500 text-white p-4 rounded-md max-w-md mx-auto"><%= alert %></p>
       <% end %>
-    </div>
+      </div>
     <div class="container mx-auto mt-6">
       <%= yield %>
     </div>
