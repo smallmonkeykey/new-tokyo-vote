@@ -1,15 +1,19 @@
-<h1>選択する</h1>
+<div class="max-w-4xl mx-auto p-6 bg-white rounded-md shadow-md">
+  <h1 class="text-3xl font-bold mb-6 text-center">選択する</h1>
 
-<% if @entries.present? %>
-  <ul>
-    <% @entries.each do |entry| %>
-      <li>
-        <%= entry.nickname %></strong><br>
-        <%= entry.title %>
-        <%= link_to '選択する', entry_path(entry, category: 'drink') %>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>エントリーされていません</p>
-<% end %>
+  <% if @entries.present? %>
+    <ul class="space-y-4">
+      <% @entries.each do |entry| %>
+        <li class="p-4 border border-gray-300 rounded-md flex justify-between items-center">
+          <div>
+            <p class="text-lg font-semibold"><%= entry.nickname %></p>
+            <p class="text-gray-700"><%= entry.title %></p>
+          </div>
+          <%= link_to '選択する', entry_path(entry, category: 'drink'), class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 inline-block min-w-[120px] text-center" %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p class="text-center text-gray-500">エントリーされていません</p>
+  <% end %>
+</div>
