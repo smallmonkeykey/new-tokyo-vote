@@ -81,4 +81,5 @@ gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
 gem 'rails-i18n'
 
-gem "tailwindcss-rails", "~> 2.7"
+gem 'font-awesome-sass'
+gem 'tailwindcss-rails', '~> 2.7'
