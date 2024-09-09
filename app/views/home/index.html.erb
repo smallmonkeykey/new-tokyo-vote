@@ -1,6 +1,15 @@
-<h1>TokyuRuby会議15</h1>
-<p>アプリの説明</p>
-<h2>エントリーする</h2>
-<%= link_to "エントリー", entries_categories_path %>
-<h2>投票する</h2>
-<%= link_to "投票", votes_categories_path %>
+<div class="text-center">
+  <h1 class="text-3xl font-bold">TokyuRuby会議15</h1>
+  <p class="mt-4 max-w-[390px] mx-auto sm:max-w-full leading-loose">本日はご来場いただき、誠にありがとうございます。<br>
+    このアプリでは、飯王と酒王にエントリーしたいアイテムの登録ができます。<br>
+    また、エントリーされたアイテムに対して投票を行うことも可能です。<br>
+    皆様のご参加を心よりお待ちしています！</p>
+  <h2 class="mt-8 text-2xl pb-5">エントリーする</h2>
+  <%= link_to entries_categories_path, class: 'inline-flex items-center justify-center w-12 h-12 bg-blue-500 text-white rounded-full hover:bg-blue-700' do %>
+    <i class="fa-solid fa-person fa-xl"></i>
+  <% end %>
+  <h2 class="mt-8 text-2xl pb-5">投票する</h2>
+  <%= link_to votes_categories_path, class: 'inline-flex items-center justify-center w-12 h-12 bg-blue-500 text-white rounded-full hover:bg-blue-700' do %>
+    <i class="fa-solid fa-hand-holding-heart"></i>
+  <% end %>
+</div>

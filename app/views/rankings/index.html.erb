@@ -1,28 +1,51 @@
-<h1>投票結果</h1>
+<div class="max-w-4xl mx-auto p-6 bg-white rounded-md shadow-md">
+  <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">投票結果</h1>
 
-<div>
-  <%= link_to 'Food', rankings_path(category: 'food') %>
-  <%= link_to 'Drink', rankings_path(category: 'drink') %>
-  <%= link_to 'LT', rankings_path(category: 'lt') %>
+  <div class="mb-6 flex justify-center space-x-4">
+    <%= link_to '飯王', rankings_path(category: 'food'), class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600" %>
+    <%= link_to '酒王', rankings_path(category: 'drink'), class: "bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600" %>
+    <%= link_to 'LT王', rankings_path(category: 'lt'), class: "bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600" %>
+  </div>
+
+  <h2 class="text-2xl font-semibold mb-4 text-gray-800">単品王</h2>
+  <% @rankings.each do |ranking| %>
+    <div class="mb-4 p-4 border border-gray-300 rounded-md">
+      <p class="text-xl font-bold"><%= ranking.votes_count %>票</p>
+      <p class="text-lg font-medium"><%= ranking.title %></p>
+      <p class="text-gray-700"><%= ranking.nickname %></p>
+    </div>
+  <% end %>
+
+  <% if @category != 'lt' %>
+    <h2 class="text-2xl font-semibold mt-8 mb-4 text-gray-800">合算王</h2>
+    <% @rankings_total.each do |ranking| %>
+      <div class="mb-4 p-4 border border-gray-300 rounded-md">
+        <p class="text-xl font-bold"><%= ranking.votes_count %>票</p>
+        <p class="text-lg font-medium"><%= ranking.titles %></p>
+        <p class="text-gray-700"><%= ranking.nickname %></p>
+      </div>
+    <% end %>
+  <% end %>
+
+<div class="max-w-4xl mx-auto p-6 bg-white rounded-md shadow-md">
+  <h2 class="text-2xl font-semibold mb-4">コメント全文</h2>
+
+    <table class="w-full border-collapse">
+      <thead>
+        <tr class="bg-gray-100 border-b">
+          <th class="p-2 text-left text-sm font-semibold text-gray-700">宛名</th>
+          <th class="p-2 text-left text-sm font-semibold text-gray-700">感想</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @comments.each do |comment| %>
+          <tr class="border-b">
+            <td class="p-2 text-sm text-gray-800"><%= comment.nickname %></td>
+            <td class="p-2 text-sm text-gray-600"><%= comment.comment %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 </div>
 
-<h2>単品王</h2>
-<% @rankings.each do |ranking| %>
-  <p><%= ranking.votes_count %>票</p>
-  <p><%= ranking.title %></p>
-  <p><%= ranking.nickname %></p>
-<% end %>
-
-<% if @category != 'lt' %>
-  <h2>合算王</h2>
-  <% @rankings_total.each do |ranking| %>
-    <p><%= ranking.votes_count %>票</p>
-    <p><%= ranking.titles %></p>
-    <p><%= ranking.nickname %></p>
-  <% end %>
-<% end %>
-
-<% @comments.each do |comment| %>
-  <p><%= comment.nickname %>さんへ</p>
-  <p><%= comment.comment %></p>
-<% end %>
+</div>

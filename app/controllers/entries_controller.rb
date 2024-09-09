@@ -41,7 +41,7 @@ class EntriesController < ApplicationController
   private
 
   def entry_params
-    params.require(:entry).permit(:nickname, :title, :image, :category_id)
+    params.require(:entry).permit(:nickname, :title, :category_id)
   end
 
   def render_template(category, action_name)
