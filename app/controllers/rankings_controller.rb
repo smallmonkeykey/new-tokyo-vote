@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class RankingsController < ApplicationController
-  before_action :check_publication_time, only: [:index]
+  before_action :check_closing_time, only: [:index]
   def index
     @category = params[:category].presence || 'food'
 
@@ -12,10 +12,10 @@ class RankingsController < ApplicationController
 
   private
 
-  def check_publication_time
-    publication_time = Time.new(2024, 9, 29, 19, 0o0, 0, '+09:00')
+  def check_closing_time
+    closing_time = Time.new(2024, 9, 29, 19, 0o0, 0, '+09:00')
 
-    return unless Time.current < publication_time
+    return unless Time.current < closing_time
 
     redirect_to root_path, alert: 'このページは現在公開されていません。'
   end

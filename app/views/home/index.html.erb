@@ -12,4 +12,10 @@
   <%= link_to votes_categories_path, class: 'inline-flex items-center justify-center w-12 h-12 bg-blue-500 text-white rounded-full hover:bg-blue-700' do %>
     <i class="fa-solid fa-hand-holding-heart"></i>
   <% end %>
+  <% if after_closing_time? %>
+    <h2 class="mt-8 text-2xl pb-5">投票結果</h2>
+    <%= link_to rankings_path, class: 'inline-flex items-center justify-center w-12 h-12 bg-blue-500 text-white rounded-full hover:bg-blue-700' do %>
+      <i class="fa-solid fa-ranking-star"></i>
+    <% end %>
+  <% end %>
 </div>
