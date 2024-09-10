@@ -1,5 +1,16 @@
-<h1>TokyuRubu会議へようこそ</h1>
+<div class="text-center">
+  <h1 class="text-3xl font-bold">TokyuRuby会議15</h1>
+  <p class="mt-4 max-w-[390px] mx-auto sm:max-w-full leading-loose">本日はご来場いただき、誠にありがとうございます。<br>
+    このアプリでは、飯王と酒王にエントリーしたいアイテムの登録ができます。<br>
+    また、エントリーされたアイテムに対して投票を行うことも可能です。<br>
+    皆様のご参加を心よりお待ちしています！</p>
+</div>
 
-<%= form_tag('/auth/github', method: 'post', data: {turbo: false}) do %>
-  <button type='submit'>Githubでログインする</button>
-<% end %>
+<div class="flex justify-center mt-5">
+  <%= form_tag('/auth/github', method: 'post', data: {turbo: false}) do %>
+    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full flex items-center justify-center space-x-2">
+      <i class="fab fa-github"></i>
+      <span>Githubでログインする</span>
+    </button>
+  <% end %>
+</div>
