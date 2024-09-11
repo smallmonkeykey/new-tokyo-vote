@@ -23,10 +23,7 @@ class VotesController < ApplicationController
   end
 
   def close_voting
-    closing_time = Time.new(2024, 9, 29, 19, 0o0, 0, '+09:00')
-
-    return unless Time.current >= closing_time
-
-    redirect_to rankings_path, alert: '19時以降は投票できません'
+    return unless Time.current >= CLOSING_TIME
+    redirect_to rankings_path, alert: 'この時間は投票できません'
   end
 end
