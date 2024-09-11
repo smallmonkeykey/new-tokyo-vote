@@ -1,11 +1,32 @@
-<div class="text-center">
-  <h1 class="text-3xl font-bold">TokyuRuby会議15</h1>
-  <p class="mt-4 max-w-[390px] mx-auto sm:max-w-full leading-loose">本日はご来場いただき、誠にありがとうございます。<br>
-    このアプリでは、飯王と酒王にエントリーしたいアイテムの登録ができます。<br>
-    また、エントリーされたアイテムに対して投票を行うことも可能です。<br>
-    皆様のご参加を心よりお待ちしています！</p>
+<div class="text-center px-4 py-8">
+  <h1 class="text-3xl font-bold text-blue-700">TokyuRuby会議15</h1>
+  <p class="mt-4 max-w-[390px] mx-auto sm:max-w-full text-gray-700 leading-relaxed">
+    本日はご来場いただき<br>
+    誠にありがとうございます。<br>
+    このアプリは、飯王と酒王への参加登録と<br>
+    投票のためのアプリです。
+  </p>
+  <div class="mt-6 space-y-6 text-left max-w-[390px] mx-auto lg:text-center lg:max-w-none">
+    <div class="flex items-center lg:justify-center">
+      <span class="ml-3 text-lg text-gray-700">
+        <i class="fa-regular fa-lightbulb text-blue-500 text-xl"></i><strong class="text-blue-600"> エントリー</strong><br>
+        飯王と酒王へのエントリーしたいアイテムの登録ができます。
+      </span>
+    </div>
+    <div class="flex items-center lg:justify-center">
+      <span class="ml-3 text-lg text-gray-700">
+        <i class="fa-regular fa-lightbulb text-blue-500 text-xl"></i><strong class="text-blue-600"> 投票</strong><br>
+        飯王と酒王とLT王に対してそれぞれ3票ずつ投票を行うことが可能です。
+      </span>
+    </div>
+    <div class="flex items-center lg:justify-center">
+      <span class="ml-3 text-lg text-gray-700">
+        <i class="fa-regular fa-lightbulb text-blue-500 text-xl"></i><strong class="text-blue-600"> 投票結果</strong><br>
+        集計後、投票結果を見ることができます。
+      </span>
+    </div>
+  </div>
 </div>
-
 <div class="flex justify-center mt-5">
   <%= form_tag('/auth/github', method: 'post', data: {turbo: false}) do %>
     <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full flex items-center justify-center space-x-2">

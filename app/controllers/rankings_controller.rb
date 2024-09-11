@@ -14,6 +14,7 @@ class RankingsController < ApplicationController
 
   def check_closing_time
     return unless Time.current < CLOSING_TIME
+
     redirect_to root_path, alert: 'このページは現在公開されていません。'
   end
 end
