@@ -1,1 +1,1 @@
-CLOSING_TIME = Time.new(2024, 9, 29, 19, 0, 0, '+09:00')
+CLOSING_TIME = Time.zone.parse("2024-09-9 19:00")
