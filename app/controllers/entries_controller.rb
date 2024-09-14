@@ -16,7 +16,8 @@ class EntriesController < ApplicationController
   def create
     @entry = current_user.entries.new(entry_params)
     if @entry.save
-      redirect_to entries_completions_path
+      category = params[:category]
+      redirect_to entries_completions_path(category:)
     else
       flash[:error] = @entry.errors.full_messages.to_sentence
       category = params[:category]
@@ -24,7 +25,9 @@ class EntriesController < ApplicationController
     end
   end
 
-  def completions; end
+  def completions
+    @category = params[:category]
+  end
 
   def index
     category = params[:category]
