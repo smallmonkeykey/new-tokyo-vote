@@ -14,6 +14,8 @@ class VotesController < ApplicationController
       category = params[:category]
       redirect_to votes_completions_path(category:)
     else
+      flash[:error] = @vote.errors.full_messages.to_sentence
+      category = params[:category]
       redirect_to entries_path(category:), status: :unprocessable_entity
     end
   end
