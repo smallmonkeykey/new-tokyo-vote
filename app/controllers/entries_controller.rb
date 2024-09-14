@@ -36,6 +36,7 @@ class EntriesController < ApplicationController
   def show
     @entry = Entry.find(params[:id])
     @vote = Vote.new
+    @category = params[:category]
   end
 
   private

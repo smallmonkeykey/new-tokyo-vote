@@ -4,14 +4,16 @@ class VotesController < ApplicationController
   before_action :close_voting, only: [:create]
   def categories; end
 
-  def completions; end
+  def completions
+    @category = params[:category]
+  end
 
   def create
     @vote = current_user.votes.new(vote_params)
     if @vote.save
-      redirect_to votes_completions_path
-    else
       category = params[:category]
+      redirect_to votes_completions_path(category:)
+    else
       redirect_to entries_path(category:), status: :unprocessable_entity
     end
   end
