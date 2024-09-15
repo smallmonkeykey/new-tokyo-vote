@@ -11,11 +11,11 @@
       </tr>
     </thead>
     <tbody>
-      <% rankings[:single].each do |entry| %>
+      <% rankings[:single].each do |ranking| %>
         <tr class="border-b">
-          <td class="py-2 px-4"><%= entry.title %></td>
-          <td class="py-2 px-4"><%= entry.nickname %></td>
-          <td class="py-2 px-4"><%= entry.votes_count %></td>
+          <td class="py-2 px-4"><%= ranking.title %></td>
+          <td class="py-2 px-4"><%= ranking.name %></td>
+          <td class="py-2 px-4"><%= ranking.votes_count %></td>
         </tr>
       <% end %>
     </tbody>
@@ -32,11 +32,11 @@
         </tr>
       </thead>
       <tbody>
-        <% rankings[:total].each do |entry| %>
+        <% rankings[:total].each do |ranking| %>
           <tr class="border-b">
-            <td class="py-2 px-4"><%= entry.titles %></td>
-            <td class="py-2 px-4"><%= entry.nickname %></td>
-            <td class="py-2 px-4"><%= entry.votes_count %></td>
+            <td class="py-2 px-4"><%= ranking.titles %></td>
+            <td class="py-2 px-4"><%= ranking.name %></td>
+            <td class="py-2 px-4"><%= ranking.votes_count %></td>
           </tr>
         <% end %>
       </tbody>
