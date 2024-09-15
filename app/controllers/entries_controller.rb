@@ -32,12 +32,13 @@ class EntriesController < ApplicationController
   def index
     category = params[:category]
     category_id = Category.find_by(category_name: category).id
-    @entries = Entry.where(category_id:)
+    @entries = Entry.includes(:user).where(category_id:)
     render_template(category, 'entries')
   end
 
   def show
     @entry = Entry.find(params[:id])
+    @name = @entry.user.name
     @vote = Vote.new
     @category = params[:category]
   end
