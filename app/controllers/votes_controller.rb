@@ -2,6 +2,8 @@
 
 class VotesController < ApplicationController
   before_action :close_voting, only: [:create]
+  before_action :check_vote_limit, only: [:create]
+
   def categories; end
 
   def completions
@@ -30,5 +32,13 @@ class VotesController < ApplicationController
     return unless Time.current >= CLOSING_TIME
 
     redirect_to rankings_path, alert: 'この時間は投票できません'
+  end
+
+  def check_vote_limit
+    votes_count = current_user.votes.joins(entry: :category).where(categories: { category_name: params[:category] }).count
+
+    return unless votes_count >= 3
+
+    redirect_to root_path, alert: '既に3票投票しています。これ以上投票できません。'
   end
 end
