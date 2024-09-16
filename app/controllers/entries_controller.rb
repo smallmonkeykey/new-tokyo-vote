@@ -16,7 +16,8 @@ class EntriesController < ApplicationController
   def create
     @entry = current_user.entries.new(entry_params)
     if @entry.save
-      redirect_to entries_completions_path
+      category = params[:category]
+      redirect_to entries_completions_path(category:)
     else
       flash[:error] = @entry.errors.full_messages.to_sentence
       category = params[:category]
@@ -24,18 +25,22 @@ class EntriesController < ApplicationController
     end
   end
 
-  def completions; end
+  def completions
+    @category = params[:category]
+  end
 
   def index
     category = params[:category]
     category_id = Category.find_by(category_name: category).id
-    @entries = Entry.where(category_id:)
+    @entries = Entry.includes(:user).where(category_id:)
     render_template(category, 'entries')
   end
 
   def show
     @entry = Entry.find(params[:id])
+    @name = @entry.user.name
     @vote = Vote.new
+    @category = params[:category]
   end
 
   private

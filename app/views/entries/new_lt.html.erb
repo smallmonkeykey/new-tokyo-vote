@@ -1,22 +1,17 @@
 <div class="max-w-lg mx-auto p-4 bg-white shadow-sm sm:shadow-md rounded-md">
-<h1 class="text-3xl font-bold mb-6">LT王に登録</h1>
-
-<% if flash[:error] %>
-  <div class="mb-4 text-red-500">
-    <%= flash[:error] %>
-  </div>
-<% end %>
-
-<%= form_with model: @entry,url: entries_path, class: "space-y-4" do |form| %>
-    <%= form.label :nickname, "名前", class: "block font-medium mb-2" %>
-    <%= form.text_field :nickname, class: "w-full border border-gray-300 rounded-md p-2" %>
-
+  <h1 class="text-3xl font-bold mb-6">LT王に登録</h1>
+  <% if flash[:error] %>
+    <div class="mb-4 text-red-500">
+      <%= flash[:error] %>
+    </div>
+  <% end %>
+  <%= form_with model: @entry,url: entries_path, class: "space-y-4" do |form| %>
     <%= form.label :title, "LTのタイトル", class: "block font-medium mb-2" %>
     <%= form.text_field :title, class: "w-full border border-gray-300 rounded-md p-2" %>
-
-  <%= form.hidden_field :category_id, value: @category.id %>
-
-  <div class="text-center">
-  <%= form.submit "登録する", class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600" %>
-  </div>
-<% end %>
+    <%= form.hidden_field :category_id, value: @category.id %>
+    <%= hidden_field_tag :category, @category.category_name %>
+    <div class="text-center">
+      <%= form.submit "登録する", class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600" %>
+    </div>
+  <% end %>
+</div>
