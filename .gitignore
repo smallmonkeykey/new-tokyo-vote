@@ -38,3 +38,16 @@
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
+
+# Log file
+*.log
+
+#  Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files
+*.tfvars
