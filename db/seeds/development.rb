@@ -1,79 +1,30 @@
+# frozen_string_literal: true
+
 users = User.create!(
   [
     {
-      name: 'sue445'
+      provider: 'github',
+      uid: '1234',
+      name: 'name1',
+      session_digest: BCrypt::Password.create(SecureRandom.urlsafe_base64)
     },
     {
-      name: 'neko314'
+      provider: 'github',
+      uid: '12345',
+      name: 'name2',
+      session_digest: BCrypt::Password.create(SecureRandom.urlsafe_base64)
     },
     {
-      name: 'Toshio Maki'
+      provider: 'github',
+      uid: '123456',
+      name: 'name3',
+      session_digest: BCrypt::Password.create(SecureRandom.urlsafe_base64)
     },
     {
-      name: 'ryopeko with 子peko'
-    },
-    {
-      name: '	乙羽屋'
-    },
-    {
-      name: 'Shu Oogawara (@expajp)'
-    },
-    {
-      name: 'すずか(suzuka_hori)'
-    },
-    {
-      name: 'yancya'
-    },
-    {
-      name: '川村 徹 (@tkawa)'
-    },
-    {
-      name: 'kei-q'
-    },
-    {
-      name: '舩越南斗'
-    },
-    {
-      name: 'しおい(@coe401_)'
-    },
-    {
-      name: '小林悟史（ノエル'
-    },
-    {
-      name: 'yasulab'
-    },
-    {
-      name: 'Hiroki Mori'
-    },
-    {
-      name: 'joker1007'
-    },
-    {
-      name: 'kwappa'
-    },
-    {
-      name: '大倉雅史'
-    },
-    {
-      name: 'tk0miya'
-    },
-    {
-      name: '早川遼 (rira100000000)'
-    },
-    {
-      name: 'えりりん'
-    },
-    {
-      name: '桐生あんず'
-    },
-    {
-      name: 'Risa Okutani'
-    },
-    {
-      name: 'osyoyu'
-    },
-    {
-      name: 'junk0612'
+      provider: 'github',
+      uid: '1234567',
+      name: 'name4',
+      session_digest: BCrypt::Password.create(SecureRandom.urlsafe_base64)
     }
   ]
 )
@@ -90,128 +41,108 @@ entries = Entry.create!(
   [
     {
       user_id: users[0].id,
-      category_id: categories[2].id,
-      title: '135日のRubyist'
+      category_id: categories[0].id,
+      title: 'お菓子の家'
     },
     {
       user_id: users[1].id,
-      category_id: categories[2].id,
-      title: "Happy 20's anniversary to our Rubyist Magazine"
+      category_id: categories[0].id,
+      title: 'パンケーキ'
     },
     {
       user_id: users[2].id,
-      category_id: categories[2].id,
-      title: 'Omotesando.rbを配信する技術'
+      category_id: categories[0].id,
+      title: '一から作ったラーメン'
     },
     {
       user_id: users[3].id,
-      category_id: categories[2].id,
-      title: 'What I did to let my son know about my work'
+      category_id: categories[0].id,
+      title: '元気が出るパスタ'
     },
     {
-      user_id: users[4].id,
-      category_id: categories[2].id,
-      title: 'チームでスクラム始めました（3年ぶりN度目）。※無数のゾンビスクラムの骸を超えて'
+      user_id: users[0].id,
+      category_id: categories[0].id,
+      title: 'クッキー'
+    }
+  ]
+)
+
+Vote.create!(
+  [
+    {
+      user_id: users[2].id,
+      entry_id: entries[1].id,
+      comment: 'すごかったです！'
     },
     {
-      user_id: users[5].id,
-      category_id: categories[2].id,
-      title: '(@expajp)	Rubyはなぜ「たのしい」のか'
+      user_id: users[0].id,
+      entry_id: entries[3].id,
+      comment: ''
     },
     {
-      user_id: users[6].id,
-      category_id: categories[2].id,
-      title: '山手線一周のパフォーマンス改善'
+      user_id: users[0].id,
+      entry_id: entries[3].id,
+      comment: 'おいしかったです〜〜'
     },
     {
-      user_id: users[7].id,
-      category_id: categories[2].id,
-      title: 'Rubyistが量子コンピュータープログラミングを？'
+      user_id: users[1].id,
+      entry_id: entries[1].id,
+      comment: '優勝'
     },
     {
-      user_id: users[8].id,
-      category_id: categories[2].id,
-      title: '“Cache to Your Advantage”の裏側'
+      user_id: users[0].id,
+      entry_id: entries[2].id,
+      comment: ''
     },
     {
-      user_id: users[9].id,
-      category_id: categories[2].id,
-      title: 'Rubyistのみんなに私の推しのDuckDBを紹介させてください'
+      user_id: users[3].id,
+      entry_id: entries[1].id,
+      comment: '最高'
     },
     {
-      user_id: users[10].id,
-      category_id: categories[2].id,
-      title: 'railsジョブの実装パターンを考える'
+      user_id: users[3].id,
+      entry_id: entries[1].id,
+      comment: 'おいしかった'
     },
     {
-      user_id: users[11].id,
-      category_id: categories[2].id,
-      title: 'XPE2-bookclub explained'
+      user_id: users[1].id,
+      entry_id: entries[1].id,
+      comment: '最高でした'
     },
     {
-      user_id: users[12].id,
-      category_id: categories[2].id,
-      title: 'Ruby on RailsとDjangoを比較してみる'
+      user_id: users[1].id,
+      entry_id: entries[4].id,
+      comment: '大好きです'
     },
     {
-      user_id: users[13].id,
-      category_id: categories[2].id,
-      title: '5分で作る地図アプリ'
+      user_id: users[2].id,
+      entry_id: entries[4].id,
+      comment: 'また食べてみたいです'
     },
     {
-      user_id: users[14].id,
-      category_id: categories[2].id,
-      title: 'mruby三兄弟'
+      user_id: users[3].id,
+      entry_id: entries[4].id,
+      comment: '出会えて感謝'
     },
     {
-      user_id: users[15].id,
-      category_id: categories[2].id,
-      title: '5分で分かった気になるDebezium'
+      user_id: users[2].id,
+      entry_id: entries[4].id,
+      comment: '大好きです'
     },
     {
-      user_id: users[16].id,
-      category_id: categories[2].id,
-      title: 'ビアバーを間借りで営業してみたけど何か質問ある？'
+      user_id: users[1].id,
+      entry_id: entries[0].id,
+      comment: 'おいしかったです'
     },
     {
-      user_id: users[17].id,
-      category_id: categories[2].id,
-      title: 'TokyuRuby会議15記念、RubyのJSONシリアライザ15個解説'
+      user_id: users[2].id,
+      entry_id: entries[0].id,
+      comment: '大好きです'
     },
     {
-      user_id: users[18].id,
-      category_id: categories[2].id,
-      title: 'Rails に型を導入するための長い道のり'
-    },
-    {
-      user_id: users[19].id,
-      category_id: categories[2].id,
-      title: 'Rubyのsuccとnextはエイリアスじゃないの？'
-    },
-    {
-      user_id: users[20].id,
-      category_id: categories[2].id,
-      title: '初めて海外カンファレンスで登壇しました'
-    },
-    {
-      user_id: users[21].id,
-      category_id: categories[2].id,
-      title: 'チームで管理する10個のRailsアプリの CI/CD を CircleCI から GitHub Actions に移行した時の話'
-    },
-    {
-      user_id: users[22].id,
-      category_id: categories[2].id,
-      title: 'TokyuRuby会議の投票アプリを作った話'
-    },
-    {
-      user_id: users[23].id,
-      category_id: categories[2].id,
-      title: 'ZigでC拡張をつくる 2024 Edition'
-    },
-    {
-      user_id: users[24].id,
-      category_id: categories[2].id,
-      title: 'LR で JSON パーサーを作る 第2回'
+      user_id: users[3].id,
+      entry_id: entries[0].id,
+      comment: '大好きです'
     }
   ]
 )

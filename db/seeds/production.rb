@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 users = User.create!(
   [
     {
@@ -86,7 +88,7 @@ categories = Category.create!(
   ]
 )
 
-entries = Entry.create!(
+Entry.create!(
   [
     {
       user_id: users[0].id,
