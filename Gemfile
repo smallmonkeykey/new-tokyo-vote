@@ -57,6 +57,7 @@ end
 
 group :development do
   gem 'erb_lint', require: false
+  gem 'htmlbeautifier'
   gem 'rubocop-fjord', require: false
   gem 'rubocop-rails', require: false
 
@@ -83,5 +84,5 @@ gem 'rails-i18n'
 
 gem 'bcrypt'
 gem 'font-awesome-sass'
-gem 'htmlbeautifier'
+gem 'pg'
 gem 'tailwindcss-rails', '~> 2.7'
