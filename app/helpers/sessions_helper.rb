@@ -13,6 +13,7 @@ module SessionsHelper
   end
 
   def current_user
+    puts Rails.env
     user = User.find_by(id: session[:user_id])
     @current_user ||= user if user&.authenticated?(session[:token])
   end
