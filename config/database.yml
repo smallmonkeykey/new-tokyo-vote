@@ -23,5 +23,6 @@ test:
 production:
   <<: *default
   adapter: postgresql
-  encoding: unicode
-  url: <%= ENV["DATABASE_URL"] %>
+  database: <%= ENV['PGDATABASE'] %> 
+  username: <%= ENV['PGUSER'] %> 
+  password: <%= ENV['PGPASSWORD'] %> 
