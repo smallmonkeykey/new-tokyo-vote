@@ -2,6 +2,8 @@
 
 module SessionsHelper
   def logged_in_user
+    logger.debug("logged in userが呼ばれた")
+    logger.debug(Rails.env)
     return if logged_in?
 
     flash[:danger] = 'ログインしてください'
@@ -13,7 +15,7 @@ module SessionsHelper
   end
 
   def current_user
-    puts Rails.env
+    logger.debug(Rails.env)
     user = User.find_by(id: session[:user_id])
     @current_user ||= user if user&.authenticated?(session[:token])
   end
