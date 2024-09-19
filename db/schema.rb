@@ -35,7 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_17_075240) do
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
     t.string "session_digest"
-    t.index "\"provider,\", \"uid\"", name: "index_users_on_provider,_and_uid", unique: true
+    t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
   end
 
   create_table "votes", force: :cascade do |t|
