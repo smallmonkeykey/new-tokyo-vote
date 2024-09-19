@@ -4,6 +4,9 @@ module SessionsHelper
   def logged_in_user
     logger.debug("logged in userが呼ばれた")
     logger.debug(Rails.env)
+    logger.debug(ENV['PGDATABASE'])
+    logger.debug(ENV['PGUSER'])
+    logger.debug(ENV['PGPASSWORD'])
     return if logged_in?
 
     flash[:danger] = 'ログインしてください'
