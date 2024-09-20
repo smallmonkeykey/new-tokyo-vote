@@ -2,6 +2,7 @@
 
 module SessionsHelper
   def logged_in_user
+    logger = ActiveSupport::Logger.new(STDOUT)
     logger.debug("logged in userが呼ばれた")
     logger.debug(Rails.env)
     logger.debug(ENV['PGDATABASE'])
