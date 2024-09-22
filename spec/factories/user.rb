@@ -5,7 +5,7 @@ FactoryBot.define do
     provider { 'github' }
     uid { '1234567' }
     name { 'smallmonkeykey' }
-    admin { ture }
+    admin { true }
     session_digest { nil }
   end
 end
