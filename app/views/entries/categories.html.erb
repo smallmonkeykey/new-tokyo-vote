@@ -8,4 +8,9 @@
   <%= link_to new_entry_path(category: 'drink'), class: 'inline-flex items-center justify-center w-12 h-12 bg-blue-500 text-white rounded-full hover:bg-blue-700' do %>
     <i class="fa-solid fa-wine-glass"></i>
   <% end %>
+  <div class="mt-14">
+    <%= link_to root_path, class: 'btn btn-primary' do %>
+      <i class="fa-solid fa-rotate-left"></i> 戻る
+    <% end %>
+  </div>
 </div>

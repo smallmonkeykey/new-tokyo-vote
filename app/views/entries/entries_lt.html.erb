@@ -1,6 +1,5 @@
 <div class="max-w-4xl mx-auto p-6 bg-white rounded-md shadow-md">
   <h1 class="text-3xl font-bold mb-6 text-center">投票先を選ぶ</h1>
-
   <% if @entries.present? %>
     <ul class="space-y-4">
       <% @entries.each do |entry| %>
@@ -17,3 +16,10 @@
     <p class="text-center text-gray-500">エントリーされていません</p>
   <% end %>
 </div>
+<div class="mt-8 text-center">
+  <%= link_to votes_categories_path, class: 'btn btn-primary' do %>
+    <i class="fa-solid fa-rotate-left"></i> 戻る
+  <% end %>
+</div>
+<br>
+<br>

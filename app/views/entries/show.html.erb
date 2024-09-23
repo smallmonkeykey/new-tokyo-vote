@@ -1,17 +1,14 @@
-<div class="max-w-3xl mx-auto p-6 bg-white rounded-md shadow-md">
+<div class="max-w-3xl mx-auto p-6 bg-white rounded-md shadow-sm md:shadow-md ">
   <h1 class="text-3xl font-bold mb-6">投票する</h1>
-
   <div class="mb-6">
     <p class="text-2xl"><%= @name %></p>
     <p class="text-2xl"><%= @entry.title %></p>
   </div>
-
   <% if flash[:error].present? %>
-  <div class="text-red-500">
-    <%= flash[:error] %>
-  </div>
+    <div class="text-red-500">
+      <%= flash[:error] %>
+    </div>
   <% end %>
-
   <%= form_with model: @vote, url: votes_path, class: "space-y-4" do |form| %>
     <div class="mb-4">
       <%= form.label :comment, "コメントを記入する (任意)", class: "block font-medium mb-2 text-gray-700" %>
@@ -24,3 +21,10 @@
     </div>
   <% end %>
 </div>
+<div class="mt-8 text-center">
+  <%= link_to entries_path(category: @category), class: 'btn btn-primary' do %>
+    <i class="fa-solid fa-rotate-left"></i> 戻る
+  <% end %>
+</div>
+<br>
+<br>
