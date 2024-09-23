@@ -5,6 +5,7 @@ class Vote < ApplicationRecord
   belongs_to :entry
 
   validates :comment, length: { maximum: 300 }
+  validate :cannot_vote_for_same_entry
 
   def self.ranking_by_single(category_name)
     joins(entry: %i[category user])
@@ -30,5 +31,13 @@ class Vote < ApplicationRecord
       .where.not(votes: { comment: [nil, ''] })
       .select('entries.id AS entry_id, users.name AS name, votes.comment AS comment')
       .order('entries.user_id')
+  end
+
+  private
+
+  def cannot_vote_for_same_entry
+    return unless user.votes.exists?(entry_id:)
+
+    errors.add(:base, 'すでに投票しているため、投票できません。')
   end
 end
