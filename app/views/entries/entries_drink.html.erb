@@ -9,7 +9,7 @@
             <p class="text-lg font-semibold"><%= entry.user.name %></p>
             <p class="text-gray-700"><%= entry.title %></p>
           </div>
-          <%= link_to '選択する', entry_path(entry, category: 'drink'), class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 inline-block min-w-[120px] text-center" %>
+          <%= link_to '選択する', entry_path(entry, category: 'drink'), class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 inline-block min-w-[120px] text-center ml-5" %>
         </li>
       <% end %>
     </ul>
