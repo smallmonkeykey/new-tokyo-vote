@@ -34,10 +34,10 @@ end
 group :development do
   gem 'erb_lint', require: false
   gem 'htmlbeautifier'
+  gem 'pry-rails'
   gem 'rubocop-fjord', require: false
   gem 'rubocop-rails', require: false
   gem 'web-console'
-  gem 'pry-rails'
 end
 
 group :test do
