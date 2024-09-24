@@ -3,7 +3,7 @@
 module VotesHelper
   MAX_VOTES_PER_CATEGORY = 3
 
-  def remaind_vote_count(category_name)
+  def remind_vote_count(category_name)
     votes_count = current_user.votes.joins(entry: :category).where(category: { category_name: }).count
     MAX_VOTES_PER_CATEGORY - votes_count
   end
