@@ -13,4 +13,20 @@ class User < ApplicationRecord
       user.name = nickname
     end
   end
+
+  def log_in
+    session_token = SecureRandom.urlsafe_base64
+    update(session_digest: BCrypt::Password.create(session_token))
+    session_token
+  end
+
+  def log_out
+    update(session_digest: nil)
+  end
+
+  def authenticated?(token)
+    return false if session_digest.nil?
+
+    BCrypt::Password.new(session_digest).is_password?(token)
+  end
 end

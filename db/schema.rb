@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_09_05_104314) do
+ActiveRecord::Schema[7.0].define(version: 2024_09_17_075240) do
   create_table "categories", force: :cascade do |t|
     t.string "category_name"
     t.datetime "created_at", null: false
@@ -20,9 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_05_104314) do
   create_table "entries", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "category_id", null: false
-    t.string "nickname"
     t.string "title"
-    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_entries_on_category_id"
@@ -36,7 +34,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_05_104314) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
-    t.index "\"provider,\", \"uid\"", name: "index_users_on_provider,_and_uid", unique: true
+    t.string "session_digest"
+    t.index ["provider", "uid"], name: "index_users_on_provider,_and_uid", unique: true
   end
 
   create_table "votes", force: :cascade do |t|
