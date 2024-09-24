@@ -37,7 +37,7 @@ categories = Category.create!(
   ]
 )
 
-entries = Entry.create!(
+Entry.create!(
   [
     {
       user_id: users[0].id,
@@ -63,86 +63,6 @@ entries = Entry.create!(
       user_id: users[0].id,
       category_id: categories[0].id,
       title: 'クッキー'
-    }
-  ]
-)
-
-Vote.create!(
-  [
-    {
-      user_id: users[2].id,
-      entry_id: entries[1].id,
-      comment: 'すごかったです！'
-    },
-    {
-      user_id: users[0].id,
-      entry_id: entries[3].id,
-      comment: ''
-    },
-    {
-      user_id: users[0].id,
-      entry_id: entries[3].id,
-      comment: 'おいしかったです〜〜'
-    },
-    {
-      user_id: users[1].id,
-      entry_id: entries[1].id,
-      comment: '優勝'
-    },
-    {
-      user_id: users[0].id,
-      entry_id: entries[2].id,
-      comment: ''
-    },
-    {
-      user_id: users[3].id,
-      entry_id: entries[1].id,
-      comment: '最高'
-    },
-    {
-      user_id: users[3].id,
-      entry_id: entries[1].id,
-      comment: 'おいしかった'
-    },
-    {
-      user_id: users[1].id,
-      entry_id: entries[1].id,
-      comment: '最高でした'
-    },
-    {
-      user_id: users[1].id,
-      entry_id: entries[4].id,
-      comment: '大好きです'
-    },
-    {
-      user_id: users[2].id,
-      entry_id: entries[4].id,
-      comment: 'また食べてみたいです'
-    },
-    {
-      user_id: users[3].id,
-      entry_id: entries[4].id,
-      comment: '出会えて感謝'
-    },
-    {
-      user_id: users[2].id,
-      entry_id: entries[4].id,
-      comment: '大好きです'
-    },
-    {
-      user_id: users[1].id,
-      entry_id: entries[0].id,
-      comment: 'おいしかったです'
-    },
-    {
-      user_id: users[2].id,
-      entry_id: entries[0].id,
-      comment: '大好きです'
-    },
-    {
-      user_id: users[3].id,
-      entry_id: entries[0].id,
-      comment: '大好きです'
     }
   ]
 )

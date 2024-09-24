@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>TokyuVote2</title>
+    <%= favicon_link_tag('icon.png') %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -18,7 +19,7 @@
           <% end %>
         </div>
           <% if logged_in? %>
-            <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete },  class: "inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 hover:text-white" %>
+            <%= button_to 'ログアウト', logout_path, method: :delete, class: "bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 hover:text-white" %>
           <% end %>
         </div>
       </nav>

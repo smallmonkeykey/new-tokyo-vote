@@ -2,7 +2,7 @@
   <h1 class="text-3xl font-bold mb-6 text-center">投票先を選ぶ</h1>
   <div class="max-w-2xl mx-auto p-2 bg-white rounded-lg shadow-md mb-8">
     <p class="text-center text-gray-700 mb-4">
-      投票できる数: <span class="font-semibold text-blue-500"><%= remaind_vote_count('food') %></span>票
+      投票できる数: <span class="font-semibold text-blue-500"><%= remind_vote_count('food') %></span>票
     </p>
     <% if voted_entries('food').present? %>
       <p class="text-base mb-4 text-gray-600 text-left md:text-center">あなたが投票したのは以下のエントリーです</p>
