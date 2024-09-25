@@ -156,11 +156,6 @@ Entry.create!(
       title: 'Ruby on RailsとDjangoを比較してみる'
     },
     {
-      user_id: users[13].id,
-      category_id: categories[2].id,
-      title: '5分で作る地図アプリ'
-    },
-    {
       user_id: users[14].id,
       category_id: categories[2].id,
       title: 'mruby三兄弟'
