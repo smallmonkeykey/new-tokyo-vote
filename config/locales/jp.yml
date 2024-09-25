@@ -4,5 +4,6 @@ ja:
       entry:
         nickname: 名前
         title: 作品名
+        description: 説明
       vote:
         comment: コメント

@@ -1,8 +1,9 @@
 <div class="max-w-3xl mx-auto p-6 bg-white rounded-md shadow-sm md:shadow-md ">
   <h1 class="text-3xl font-bold mb-6">投票する</h1>
   <div class="mb-6">
-    <p class="text-2xl"><%= @name %></p>
-    <p class="text-2xl"><%= @entry.title %></p>
+    <p class="text-2xl mt-2">「<%= @entry.title %>」</p>
+    <p class="text-2xl mt-2"><%= @name %></p>
+    <p class="text-2xl mt-4 break-words"><%= @entry.description %></p>
   </div>
   <% if flash[:error].present? %>
     <div class="text-red-500">
@@ -11,7 +12,7 @@
   <% end %>
   <%= form_with model: @vote, url: votes_path, class: "space-y-4" do |form| %>
     <div class="mb-4">
-      <%= form.label :comment, "コメントを記入する (任意)", class: "block font-medium mb-2 text-gray-700" %>
+      <%= form.label :comment, "コメントを記入する【任意】", class: "block font-medium mb-2 text-gray-700" %>
       <%= form.text_area :comment, rows: 5, class: "w-full border border-gray-300 rounded-md p-2" %>
     </div>
     <%= form.hidden_field :entry_id, value: @entry.id %>
