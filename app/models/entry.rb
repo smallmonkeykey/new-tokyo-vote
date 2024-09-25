@@ -6,4 +6,5 @@ class Entry < ApplicationRecord
   belongs_to :user
   belongs_to :category
   validates :title, presence: true
+  validates :description, length: { maximum: 300 }
 end
