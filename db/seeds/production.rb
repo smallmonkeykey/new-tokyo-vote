@@ -111,11 +111,6 @@ Entry.create!(
       title: 'What I did to let my son know about my work'
     },
     {
-      user_id: users[4].id,
-      category_id: categories[2].id,
-      title: 'チームでスクラム始めました（3年ぶりN度目）。※無数のゾンビスクラムの骸を超えて'
-    },
-    {
       user_id: users[5].id,
       category_id: categories[2].id,
       title: '(@expajp)	Rubyはなぜ「たのしい」のか'
