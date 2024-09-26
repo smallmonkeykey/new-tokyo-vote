@@ -8,4 +8,12 @@ class Entry < ApplicationRecord
   belongs_to :category
   validates :title, presence: true
   validates :description, length: { maximum: 300 }
+  validate :image_type
+
+  private
+
+  def image_type
+    allowed_types = ['image/jpeg', 'image/png', 'image/gif']
+    errors.add(:image, 'はjpeg,pngまたはgif形式でアップロードしてください') if image.attached? && !image.blob.content_type.in?(allowed_types)
+  end
 end
