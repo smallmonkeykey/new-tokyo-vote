@@ -6,7 +6,7 @@
     </p>
     <% if voted_entries('food').present? %>
       <p class="text-base mb-4 text-gray-600 text-left md:text-center">あなたが投票したのは以下のエントリーです</p>
-      <ul class=" text-gray-700">
+      <ul class="text-gray-700">
         <% voted_entries('food').each do |entry| %>
           <li class="py-1">
             <span><%= entry[:user_name] %></span>さんの「<%= entry[:title] %>」
@@ -15,20 +15,23 @@
       </ul>
     <% end %>
   </div>
+
   <% if @entries.present? %>
     <ul class="space-y-4">
       <% @entries.each do |entry| %>
         <li class="p-4 border border-gray-300 rounded-md flex flex-col sm:flex-row justify-between items-start sm:items-center">
-          <div class="flex-1 mb-2 sm:mb-0 sm:pr-4 border-b sm:border-none pb-2 sm:pb-0 w-full">
-          <% if entry.image.attached? %>
-            <%= image_tag entry.image.variant(resize: "100x100") %>
-          <% end %>
-            <p class="text-lg font-semibold"><%= entry.user.name %></p>
-            <p class="text-gray-700"><%= entry.title %></p>
-            <p class="text-gray-700 text-xs mt-2"><%= entry.description %></p>
+          <div class="flex items-center flex-1 mb-2 sm:mb-0 sm:pr-4 border-b sm:border-none pb-2 sm:pb-0 w-full">
+            <% if entry.image.attached? %>
+              <%= image_tag entry.image.variant(resize: "300x300"), class: "w-24 h-24 object-cover mr-4 flex-shrink-0" %>
+            <% end %>
+            <div>
+              <p class="text-lg font-semibold"><%= entry.user.name %></p>
+              <p class="text-gray-700"><%= entry.title %></p>
+              <p class="text-gray-700 text-xs mt-2"><%= entry.description %></p>
+            </div>
           </div>
           <div class="mt-4 sm:mt-0 sm:ml-5 w-full sm:w-auto text-center">
-          <%= link_to '選択する', entry_path(entry, category: 'food'), class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 inline-block min-w-[120px] text-center ml-5" %>
+            <%= link_to '選択する', entry_path(entry, category: 'food'), class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 inline-block min-w-[120px] text-center ml-5" %>
           </div>
         </li>
       <% end %>
@@ -37,6 +40,7 @@
     <p class="text-center text-gray-500">エントリーされていません</p>
   <% end %>
 </div>
+
 <div class="mt-8 text-center">
   <%= link_to votes_categories_path, class: 'btn btn-primary' do %>
     <i class="fa-solid fa-rotate-left"></i> 戻る

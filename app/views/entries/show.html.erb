@@ -1,9 +1,12 @@
 <div class="max-w-3xl mx-auto p-6 bg-white rounded-md shadow-sm md:shadow-md ">
   <h1 class="text-3xl font-bold mb-6">投票する</h1>
   <div class="mb-6">
-    <p class="text-2xl mt-2">「<%= @entry.title %>」</p>
+  <% if @entry.image.attached? %>
+    <%= image_tag @entry.image.variant(resize: "400x400"), class: "rounded-md" %>
+  <% end %>
+    <p class="text-2xl mt-2 font-bold">「<%= @entry.title %>」</p>
     <p class="text-2xl mt-2"><%= @name %></p>
-    <p class="text-2xl mt-4 break-words"><%= @entry.description %></p>
+    <p class="text-1xl mt-4 break-words"><%= @entry.description %></p>
   </div>
   <% if flash[:error].present? %>
     <div class="text-red-500">
