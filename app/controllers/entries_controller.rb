@@ -32,7 +32,7 @@ class EntriesController < ApplicationController
   def index
     category = params[:category]
     category_id = Category.find_by(category_name: category).id
-    @entries = Entry.includes(:user).where(category_id:)
+    @entries = Entry.with_attached_image.includes(:user).where(category_id:)
     render_template(category, 'entries')
   end
 
