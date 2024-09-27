@@ -25,18 +25,20 @@
   <% end %>
   <div class="max-w-4xl mx-auto p-6 bg-white rounded-md shadow-md">
     <h2 class="text-2xl font-semibold mb-4">コメント全文</h2>
-    <table class="w-full border-collapse">
+    <table class="w-full table-fixed border-collapse">
       <thead>
         <tr class="bg-gray-100 border-b">
-          <th class="p-2 text-left text-sm font-semibold text-gray-700">宛名</th>
-          <th class="p-2 text-left text-sm font-semibold text-gray-700">感想</th>
+          <th class="p-2 text-left text-sm font-semibold text-gray-700 w-1/4">宛名</th>
+          <th class="p-2 text-left text-sm font-semibold text-gray-700 w-1/4">作品名</th>
+          <th class="p-2 text-left text-sm font-semibold text-gray-700 w-3/4">感想</th>
         </tr>
       </thead>
       <tbody>
         <% @comments.each do |comment| %>
           <tr class="border-b">
-            <td class="p-2 text-sm text-gray-800"><%= comment.name %></td>
-            <td class="p-2 text-sm text-gray-600"><%= comment.comment %></td>
+            <td class="p-2 text-xs text-gray-800 break-words"><%= comment.name %></td>
+            <td class="p-2 text-xs text-gray-800 break-words"><%= comment.title %></td>
+            <td class="p-2 text-xs text-gray-600 break-words"><%= comment.comment %></td>
           </tr>
         <% end %>
       </tbody>

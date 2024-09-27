@@ -29,7 +29,7 @@ class Vote < ApplicationRecord
     joins(entry: %i[category user])
       .where(categories: { category_name: })
       .where.not(votes: { comment: [nil, ''] })
-      .select('entries.id AS entry_id, users.name AS name, votes.comment AS comment')
+      .select('entries.id AS entry_id, entries.title AS title, users.name AS name, votes.comment AS comment')
       .order('entries.user_id')
   end
 
