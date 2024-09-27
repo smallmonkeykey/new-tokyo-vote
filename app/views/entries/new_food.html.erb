@@ -1,5 +1,13 @@
 <div class="max-w-lg mx-auto p-4 bg-white shadow-sm sm:shadow-md rounded-md">
   <h1 class="text-3xl font-bold mb-6">飯王に登録</h1>
+  <div class="text-xs">
+  <% if user_entries_by_category(@category.category_name).any? %>
+  <i class="fa-solid fa-check"></i> 登録済みの作品<br>
+    <% user_entries_by_category(@category.category_name).each do |entry| %>
+    <%= entry.title %>
+  <% end %>
+  <% end %>
+  </div>
   <% if flash[:error] %>
     <div class="mb-4 text-red-500">
       <%= flash[:error] %>
