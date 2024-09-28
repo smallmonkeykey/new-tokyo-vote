@@ -42,3 +42,14 @@
 /config/credentials/production.key
 
 /config/credentials/test.key
+
+
+#  Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files
+*.tfvars
