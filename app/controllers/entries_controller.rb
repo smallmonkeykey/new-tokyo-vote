@@ -15,13 +15,11 @@ class EntriesController < ApplicationController
 
   def create
     @entry = current_user.entries.new(entry_params)
+    category = params[:category]
     if @entry.save
-      category = params[:category]
       redirect_to entries_completions_path(category:)
     else
-      flash[:error] = @entry.errors.full_messages.to_sentence
-      category = params[:category]
-      redirect_to new_entry_path(category:), status: :unprocessable_entity
+      redirect_to new_entry_path(category:), flash: { error: @entry.errors.full_messages.to_sentence }
     end
   end
 

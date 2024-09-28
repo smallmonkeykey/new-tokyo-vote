@@ -12,13 +12,11 @@ class VotesController < ApplicationController
 
   def create
     @vote = current_user.votes.new(vote_params)
+    category = params[:category]
     if @vote.save
-      category = params[:category]
       redirect_to votes_completions_path(category:)
     else
-      flash[:error] = @vote.errors.full_messages.to_sentence
-      category = params[:category]
-      redirect_to entries_path(category:)
+      redirect_to entry_path(category:, id: vote_params[:entry_id]), flash: { error: @vote.errors.full_messages.to_sentence }
     end
   end
 
