@@ -11,7 +11,7 @@ class Vote < ApplicationRecord
     joins(entry: %i[category user])
       .where(categories: { category_name: })
       .select('entries.id AS entry_id, COUNT(votes.id) AS votes_count, entries.title AS title, users.name AS name')
-      .group('entries.id')
+      .group('entries.id', 'entries.title', 'users.name')
       .order('votes_count DESC')
       .limit(3)
   end
@@ -20,7 +20,7 @@ class Vote < ApplicationRecord
     joins(entry: %i[category user])
       .where(categories: { category_name: })
       .select('entries.id AS entry_id, COUNT(votes.id) AS votes_count, GROUP_CONCAT(DISTINCT entries.title) AS titles, users.name AS name')
-      .group('entries.user_id')
+      .group('entries.user_id', 'users.name')
       .order('votes_count DESC')
       .limit(3)
   end
