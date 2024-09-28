@@ -19,7 +19,7 @@ class Vote < ApplicationRecord
   def self.ranking_by_total_votes(category_name)
     joins(entry: %i[category user])
       .where(categories: { category_name: })
-      .select('entries.id AS entry_id, COUNT(votes.id) AS votes_count, GROUP_CONCAT(DISTINCT entries.title) AS titles, users.name AS name')
+      .select('entries.id AS entry_id, COUNT(votes.id) AS votes_count, string_agg(entries.title, ",") AS titles, users.name AS name')
       .group('entries.user_id', 'users.name')
       .order('votes_count DESC')
       .limit(3)
