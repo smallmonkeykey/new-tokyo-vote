@@ -5,11 +5,14 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.4'
 
+gem 'aws-sdk-s3', require: false
 gem 'bcrypt'
 gem 'bootsnap', require: false
 gem 'font-awesome-sass'
+gem 'image_processing'
 gem 'importmap-rails'
 gem 'jbuilder'
+gem 'mini_magick'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'

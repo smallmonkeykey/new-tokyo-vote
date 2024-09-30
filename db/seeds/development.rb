@@ -37,7 +37,7 @@ categories = Category.create!(
   ]
 )
 
-Entry.create!(
+entries = Entry.create!(
   [
     {
       user_id: users[0].id,
@@ -63,6 +63,31 @@ Entry.create!(
       user_id: users[0].id,
       category_id: categories[0].id,
       title: 'クッキー'
+    }
+  ]
+)
+
+Vote.create!(
+  [
+    {
+      entry_id: entries[0].id,
+      user_id: users[1].id
+    },
+    {
+      entry_id: entries[0].id,
+      user_id: users[2].id
+    },
+    {
+      entry_id: entries[0].id,
+      user_id: users[3].id
+    },
+    {
+      entry_id: entries[1].id,
+      user_id: users[2].id
+    },
+    {
+      entry_id: entries[1].id,
+      user_id: users[3].id
     }
   ]
 )

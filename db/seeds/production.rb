@@ -15,7 +15,7 @@ users = User.create!(
       name: 'ryopeko with 子peko'
     },
     {
-      name: '	乙羽屋'
+      name: '乙羽屋'
     },
     {
       name: 'Shu Oogawara (@expajp)'
@@ -55,6 +55,9 @@ users = User.create!(
     },
     {
       name: '大倉雅史'
+    },
+    {
+      name: '村上 佳久'
     },
     {
       name: 'tk0miya'
@@ -173,35 +176,41 @@ Entry.create!(
     {
       user_id: users[18].id,
       category_id: categories[2].id,
-      title: 'Rails に型を導入するための長い道のり'
+      title: 'あるデザインパターンの導入に失敗した話'
     },
+
     {
       user_id: users[19].id,
       category_id: categories[2].id,
-      title: 'Rubyのsuccとnextはエイリアスじゃないの？'
+      title: 'Rails に型を導入するための長い道のり'
     },
     {
       user_id: users[20].id,
       category_id: categories[2].id,
-      title: '初めて海外カンファレンスで登壇しました'
+      title: 'Rubyのsuccとnextはエイリアスじゃないの？'
     },
     {
       user_id: users[21].id,
       category_id: categories[2].id,
-      title: 'チームで管理する10個のRailsアプリの CI/CD を CircleCI から GitHub Actions に移行した時の話'
+      title: '初めて海外カンファレンスで登壇しました'
     },
     {
       user_id: users[22].id,
       category_id: categories[2].id,
-      title: 'TokyuRuby会議の投票アプリを作った話'
+      title: 'チームで管理する10個のRailsアプリの CI/CD を CircleCI から GitHub Actions に移行した時の話'
     },
     {
       user_id: users[23].id,
       category_id: categories[2].id,
-      title: 'ZigでC拡張をつくる 2024 Edition'
+      title: 'TokyuRuby会議の投票アプリを作った話'
     },
     {
       user_id: users[24].id,
+      category_id: categories[2].id,
+      title: 'ZigでC拡張をつくる 2024 Edition'
+    },
+    {
+      user_id: users[25].id,
       category_id: categories[2].id,
       title: 'LR で JSON パーサーを作る 第2回'
     }

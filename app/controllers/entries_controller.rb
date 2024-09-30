@@ -15,13 +15,11 @@ class EntriesController < ApplicationController
 
   def create
     @entry = current_user.entries.new(entry_params)
+    category = params[:category]
     if @entry.save
-      category = params[:category]
       redirect_to entries_completions_path(category:)
     else
-      flash[:error] = @entry.errors.full_messages.to_sentence
-      category = params[:category]
-      redirect_to new_entry_path(category:), status: :unprocessable_entity
+      redirect_to new_entry_path(category:), flash: { error: @entry.errors.full_messages.to_sentence }
     end
   end
 
@@ -32,7 +30,7 @@ class EntriesController < ApplicationController
   def index
     category = params[:category]
     category_id = Category.find_by(category_name: category).id
-    @entries = Entry.includes(:user).where(category_id:)
+    @entries = Entry.with_attached_image.includes(:user).where(category_id:)
     render_template(category, 'entries')
   end
 
@@ -46,7 +44,7 @@ class EntriesController < ApplicationController
   private
 
   def entry_params
-    params.require(:entry).permit(:title, :description, :category_id)
+    params.require(:entry).permit(:title, :description, :category_id, :image)
   end
 
   def render_template(category, action_name)
