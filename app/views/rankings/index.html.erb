@@ -1,42 +1,44 @@
 <div class="max-w-4xl mx-auto p-6 bg-white rounded-md shadow-md">
   <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">投票結果</h1>
   <div class="mb-6 flex justify-center space-x-4">
-    <%= link_to '飯王', rankings_path(category: 'food'), class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600" %>
-    <%= link_to '酒王', rankings_path(category: 'drink'), class: "bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600" %>
-    <%= link_to 'LT王', rankings_path(category: 'lt'), class: "bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600" %>
+    <%= link_to '飯王', rankings_path(category: 'food'), class: "text-white px-4 py-2 rounded-md #{( params[:category] == 'food' || params[:category].nil? ) ? 'bg-blue-500' : 'bg-slate-300'}" %>
+    <%= link_to '酒王', rankings_path(category: 'drink'), class: "text-white px-4 py-2 rounded-md #{params[:category] == 'drink' ? 'bg-green-500' : 'bg-slate-300'}" %>
+    <%= link_to 'LT王', rankings_path(category: 'lt'), class: "text-white px-4 py-2 rounded-md #{params[:category] == 'lt' ? 'bg-orange-500' : 'bg-slate-300'}" %>
   </div>
   <h2 class="text-2xl font-semibold mb-4 text-gray-800">単品王</h2>
-  <% @rankings.each do |ranking| %>
+  <% @rankings.each_with_index do |ranking, index| %>
     <div class="mb-4 p-4 border border-gray-300 rounded-md">
-      <p class="text-xl font-bold"><%= ranking.votes_count %>票</p>
+      <p class="text-xl font-bold"><%= index + 1 %>位: <%= ranking.name %></p>
       <p class="text-lg font-medium"><%= ranking.title %></p>
-      <p class="text-gray-700"><%= ranking.name %></p>
+      <p class="text-gray-700"><%= ranking.votes_count %>票</p>
     </div>
   <% end %>
   <% if @category != 'lt' %>
     <h2 class="text-2xl font-semibold mt-8 mb-4 text-gray-800">合算王</h2>
-    <% @rankings_total.each do |ranking| %>
+    <% @rankings_total.each_with_index do |ranking, index| %>
       <div class="mb-4 p-4 border border-gray-300 rounded-md">
-        <p class="text-xl font-bold"><%= ranking.votes_count %>票</p>
+        <p class="text-xl font-bold"><%= index + 1 %>位: <%= ranking.name %></p>
         <p class="text-lg font-medium"><%= ranking.titles %></p>
-        <p class="text-gray-700"><%= ranking.name %></p>
+        <p class="text-gray-700"><%= ranking.votes_count %>票</p>
       </div>
     <% end %>
   <% end %>
   <div class="max-w-4xl mx-auto p-6 bg-white rounded-md shadow-md">
     <h2 class="text-2xl font-semibold mb-4">コメント全文</h2>
-    <table class="w-full border-collapse">
+    <table class="w-full table-fixed border-collapse">
       <thead>
         <tr class="bg-gray-100 border-b">
-          <th class="p-2 text-left text-sm font-semibold text-gray-700">宛名</th>
-          <th class="p-2 text-left text-sm font-semibold text-gray-700">感想</th>
+          <th class="p-2 text-left text-sm font-semibold text-gray-700 w-1/4">名前</th>
+          <th class="p-2 text-left text-sm font-semibold text-gray-700 w-1/4">作品名</th>
+          <th class="p-2 text-left text-sm font-semibold text-gray-700 w-3/5">感想</th>
         </tr>
       </thead>
       <tbody>
         <% @comments.each do |comment| %>
           <tr class="border-b">
-            <td class="p-2 text-sm text-gray-800"><%= comment.name %></td>
-            <td class="p-2 text-sm text-gray-600"><%= comment.comment %></td>
+            <td class="p-2 text-xs text-gray-800 break-words"><%= comment.name %></td>
+            <td class="p-2 text-xs text-gray-800 break-words"><%= comment.title %></td>
+            <td class="p-2 text-xs text-gray-600 break-words"><%= comment.comment %></td>
           </tr>
         <% end %>
       </tbody>
