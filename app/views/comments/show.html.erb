@@ -1,7 +1,7 @@
 <% content_for :head do %>
   <meta property="og:title" content="<%= @entry.title %>への寄せられたコメントです" />
   <meta property="og:description" content="コメント一覧ページです" />
-  <meta property="og:image" content="<%= asset_url('tokyu.png') %>" />
+  <meta property="og:image" content="https://tokyu-vote.up.railway.app/assets/images/tokyu.png" />
   <meta property="og:url" content="<%= request.original_url %>" />
 <% end %>
 <div class="container mx-auto px-4 py-8 lg:px-8 lg:w-3/4">
@@ -20,12 +20,13 @@
   </ul>
   <br>
   <div class="text-center">
-    <p class="text-xs">結果をシェアする</p>
-    <td class="p-2 text-xs text-gray-600 break-words">
-      <%= link_to "https://twitter.com/intent/tweet?text=【#{ @entry.title }は感想をもらったよ！】&hashtags=tqrk15&url=#{ entry_url(@entry) }", target: "_blank" do %>
-        <i class="fa-brands fa-x-twitter"></i>
-      <% end %>
-    </div>
+  <p class="text-xs">結果をシェアする</p>
+  <div class="p-2 text-xs text-gray-600 break-words">
+    <%= link_to "https://twitter.com/intent/tweet?text=【#{ @entry.title }は感想をもらったよ！】&hashtags=tqrk15&url=#{ entry_url(@entry) }", target: "_blank" do %>
+      <i class="fa-brands fa-x-twitter"></i>
+    <% end %>
+  </div>
+</div>
     <div class="text-center mt-8">
       <%= link_to "戻る", comments_path %>
     </div>
