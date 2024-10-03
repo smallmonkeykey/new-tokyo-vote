@@ -38,12 +38,16 @@
           <tr class="border-b">
             <td class="p-2 text-xs text-gray-800 break-words"><%= comment.name %></td>
             <td class="p-2 text-xs text-gray-800 break-words"><%= comment.title %></td>
-            <td class="p-2 text-xs text-gray-600 break-words"><%= comment.comment %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+            <td class="p-2 text-xs text-gray-600 break-words"><%= comment.comment %> <%= link_to "https://twitter.com/intent/tweet?text=#{  comment.comment }&hashtags=tqrk15", target: "_blank" do %>
+                <i class="fa-brands fa-x-twitter"></i></i>
+            <% end %>
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="<%= comment.name %>さんの<%= comment.title %>は「<%= comment.comment %>」という感想をもらったよ！#tqrk15" data-url="https://tokyurubykaigi.github.io/tokyu15/" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 </div>
 <div class="mt-12 text-center">
   <%= link_to root_path, class: 'btn btn-primary' do %>
