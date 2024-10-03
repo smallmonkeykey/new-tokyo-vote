@@ -1,9 +1,16 @@
+<% content_for :head do %>
+  <meta property="og:title" content="<%= @entry.title %>への寄せられたコメントです" />
+  <meta property="og:description" content="コメント一覧ページです" />
+  <meta property="og:image" content="<%= image_url('tokyu.png') %>" />
+  <meta property="og:url" content="<%= request.original_url %>" />
+<% end %>
+
 <div class="container mx-auto px-4 py-8 lg:px-8 lg:w-3/4">
   <h1 class="text-2xl font-bold mb-6 text-center">コメント一覧</h1>
 
   <div class="font-semibold ml-3">
     <p><i class="fa-solid fa-user"></i> <%= @entry.user.name %> さん</p>
-    <p class="whitespace-normal"><i class="fa-solid fa-star"></i> <%= @entry.title %></p> <!-- ここを修正 -->
+    <p class="whitespace-normal"><i class="fa-solid fa-star"></i> <%= @entry.title %></p>
   </div>
   <br>
 
@@ -14,6 +21,9 @@
       </li>
     <% end %>
   </ul>
+
+  <br>
+  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="【<%= @entry.title %>は感想をもらったよ！】#tqrk15" data-show-count="false"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
   <div class="text-center mt-8">
     <%= link_to "戻る", comments_path %>
