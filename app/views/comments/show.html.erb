@@ -1,7 +1,7 @@
 <% content_for :head do %>
   <meta property="og:title" content="<%= @entry.title %>への寄せられたコメントです" />
   <meta property="og:description" content="コメント一覧ページです" />
-  <meta property="og:image" content="<%= image_url('tokyu.png') %>" />
+  <meta property="og:image" content="<%= asset_url('tokyu.png') %>" />
   <meta property="og:url" content="<%= request.original_url %>" />
 <% end %>
 
