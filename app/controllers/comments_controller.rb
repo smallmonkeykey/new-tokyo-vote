@@ -5,19 +5,18 @@ class CommentsController < ApplicationController
   before_action :check_closing_time
 
   def index
-        @food_grouped_comments = Vote.fetch_group_comment('food')
-        @drink_grouped_comments = Vote.fetch_group_comment('drink')
-        @lt_grouped_comments = Vote.fetch_group_comment('lt')
-
+    @food_grouped_comments = Vote.fetch_group_comment('food')
+    @drink_grouped_comments = Vote.fetch_group_comment('drink')
+    @lt_grouped_comments = Vote.fetch_group_comment('lt')
   end
 
   def show
-      @entry = Entry.find(params[:id])
-  @entry_comments = Vote.where(entry_id: @entry.id)
-                        .where.not(comment: [nil, ""])
+    @entry = Entry.find(params[:id])
+    @entry_comments = Vote.where(entry_id: @entry.id)
+                          .where.not(comment: [nil, ''])
   end
 
-    private
+  private
 
   def check_closing_time
     return unless Time.current < CLOSING_TIME

@@ -135,78 +135,78 @@ Vote.create!(
     {
       entry_id: entries[0].id,
       user_id: users[1].id,
-      comment: "最高でした！"
+      comment: '最高でした！'
     },
     {
       entry_id: entries[0].id,
       user_id: users[2].id,
-      comment: "めっちゃおいしかったでーーーーーーす！"
+      comment: 'めっちゃおいしかったでーーーーーーす！'
     },
     {
       entry_id: entries[0].id,
       user_id: users[3].id,
-      comment: "いっぱい食べちゃいましたよ！"
+      comment: 'いっぱい食べちゃいましたよ！'
     },
     {
       entry_id: entries[1].id,
       user_id: users[2].id,
-      comment: "美味しかったですまた食べたいです！"
+      comment: '美味しかったですまた食べたいです！'
     },
     {
       entry_id: entries[1].id,
       user_id: users[3].id,
-      comment: "作り方おしえてほしいです〜〜〜〜！"
+      comment: '作り方おしえてほしいです〜〜〜〜！'
     },
     {
       entry_id: entries[2].id,
       user_id: users[4].id,
-      comment: "このラーメンは傑作です！"
+      comment: 'このラーメンは傑作です！'
     },
     {
       entry_id: entries[3].id,
       user_id: users[5].id,
-      comment: "このパスタは元気が出ますね！"
+      comment: 'このパスタは元気が出ますね！'
     },
     # votes for drink entries
     {
       entry_id: entries[7].id,
       user_id: users[0].id,
-      comment: "素晴らしいカクテルでした！"
+      comment: '素晴らしいカクテルでした！'
     },
     {
       entry_id: entries[8].id,
       user_id: users[1].id,
-      comment: "クラフトビールは最高！"
+      comment: 'クラフトビールは最高！'
     },
     {
       entry_id: entries[9].id,
       user_id: users[2].id,
-      comment: "レモネードがさっぱりして美味しい！"
+      comment: 'レモネードがさっぱりして美味しい！'
     },
     {
       entry_id: entries[10].id,
       user_id: users[3].id,
-      comment: "フルーツジュース美味しかったです！"
+      comment: 'フルーツジュース美味しかったです！'
     },
     {
       entry_id: entries[11].id,
       user_id: users[4].id,
-      comment: "アイスコーヒーがとても爽やかでした。"
+      comment: 'アイスコーヒーがとても爽やかでした。'
     },
     {
       entry_id: entries[12].id,
       user_id: users[0].id,
-      comment: "LTについて色々学びました。"
+      comment: 'LTについて色々学びました。'
     },
     {
       entry_id: entries[13].id,
       user_id: users[1].id,
-      comment: "プレゼンのコツをもっと知りたいです。"
+      comment: 'プレゼンのコツをもっと知りたいです。'
     },
     {
       entry_id: entries[14].id,
       user_id: users[2].id,
-      comment: "成功するプレゼンについてすごく参考になりましたあああああああああああああああああああああああああああああああああああああああああああああ"
+      comment: '成功するプレゼンについてすごく参考になりましたあああああああああああああああああああああああああああああああああああああああああああああ'
     }
   ]
 )
