@@ -28,7 +28,7 @@
   <br>
   <div class="text-center">
     <p class="text-xs">結果をシェアする</p>
-    <%= link_to "https://twitter.com/intent/tweet?text=【#{ @entry.title }は感想をもらったよ！】&hashtags=tqrk15&url=#{ entry_url(@entry) }", target: "_blank" do %>
+    <%= link_to "https://twitter.com/intent/tweet?text=【#{ @entry.title }は感想をもらったよ！】&hashtags=tqrk15&url=#{ comment_url(@entry) }", target: "_blank" do %>
       <i class="fa-brands fa-square-x-twitter"></i>
     <% end %>
   </div>
