@@ -1,4 +1,15 @@
-<% set_meta_tags og: { title: "#{@entry.title}への寄せられたコメントです", description: "コメント一覧ページです", image: image_url("tokyu.png"), url: request.original_url } %>
+<% set_meta_tags(
+  og: {
+    title: "#{@entry.title}への寄せられたコメントです",
+    description: "コメント一覧ページです",
+    image: image_url("tokyu.png"),
+    url: request.original_url
+  },
+  twitter: {
+    card: "summary_large_image"
+  }
+) %>
+
 <div class="container mx-auto px-4 py-8 lg:px-8 lg:w-3/4">
   <h1 class="text-2xl font-bold mb-6 text-center">コメント一覧</h1>
   <div class="font-semibold ml-3">
