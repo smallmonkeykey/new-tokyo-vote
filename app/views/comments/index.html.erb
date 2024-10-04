@@ -6,7 +6,7 @@
         <li class="bg-white border border-gray-300 p-4 rounded-lg transition duration-200 ease-in-out shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center">
           <div class="w-full">
             <p class="text-lg font-semibold"><%= "#{group.name}さん" %></p>
-            <p class="break-words whitespace-normal"><%= "#{group.title}" %></p> <!-- ここを修正 -->
+            <p class="break-words whitespace-normal"><%= "#{group.title}" %></p>
           </div>
           <%= link_to "コメントを表示", comment_path(group.entry_id), class: "bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200 ease-in-out mt-2 w-full text-center sm:mt-0 sm:w-auto sm:ml-4" %>
         </li>
@@ -21,7 +21,7 @@
         <li class="bg-white border border-gray-300 p-4 rounded-lg transition duration-200 ease-in-out shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center">
           <div class="w-full">
             <p class="text-lg font-semibold"><%= "#{group.name}さん" %></p>
-            <p class="break-words whitespace-normal"><%= "#{group.title}" %></p> <!-- ここを修正 -->
+            <p class="break-words whitespace-normal"><%= "#{group.title}" %></p>
           </div>
           <%= link_to "コメントを表示", comment_path(group.entry_id), class: "bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200 ease-in-out mt-2 w-full text-center sm:mt-0 sm:w-auto sm:ml-4" %>
         </li>
@@ -29,7 +29,6 @@
     </ul>
   </div>
 
-  <!-- LT王に関するコメント -->
   <div class="mb-12">
     <h2 class="text-2xl font-bold mb-6 border-b pb-2 text-center lg:text-left">LT王に関するコメント</h2>
     <ul class="space-y-4">
@@ -37,7 +36,7 @@
         <li class="bg-white border border-gray-300 p-4 rounded-lg transition duration-200 ease-in-out shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center">
           <div class="w-full">
             <p class="text-lg font-semibold"><%= "#{group.name}さん" %></p>
-            <p class="break-words whitespace-normal"><%= "#{group.title}" %></p> <!-- ここを修正 -->
+            <p class="break-words whitespace-normal"><%= "#{group.title}" %></p>
           </div>
           <%= link_to "コメントを表示", comment_path(group.entry_id), class: "bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200 ease-in-out mt-2 w-full text-center sm:mt-0 sm:w-auto sm:ml-4" %>
         </li>
