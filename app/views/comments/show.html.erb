@@ -1,13 +1,13 @@
 <% set_meta_tags(
   og: {
-    title: "#{@entry.title}への寄せられたコメントです",
-    description: "コメント一覧",
+    title: "【#{@entry.title}】への感想です",
+    description: "頂いたすべてのコメントを掲載しています",
     image: image_url("tokyu.png"),
     url: request.original_url,
     type: 'website'
   },
   twitter: {
-    card: "summary_large_image"
+    card: "summary"
   }
 ) %>
 
