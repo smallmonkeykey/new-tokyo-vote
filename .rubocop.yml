@@ -1,0 +1,16 @@
+inherit_gem:
+  rubocop-fjord:
+    - "config/rubocop.yml"
+    - "config/rails.yml"
+
+AllCops:
+    SuggestExtensions: false
+
+Style/UnlessElse:
+  Enabled: false
+
+Style/ConditionalAssignment:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false

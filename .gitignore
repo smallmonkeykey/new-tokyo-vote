@@ -33,3 +33,23 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+/config/credentials/development.key
+
+/app/assets/builds/*
+!/app/assets/builds/.keep
+
+/config/credentials/production.key
+
+/config/credentials/test.key
+
+
+#  Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files
+*.tfvars

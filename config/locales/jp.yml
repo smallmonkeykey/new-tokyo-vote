@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    attributes:
+      entry:
+        nickname: 名前
+        title: 作品名
+        description: 説明
+        image: 画像
+      vote:
+        comment: コメント

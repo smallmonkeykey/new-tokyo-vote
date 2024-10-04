@@ -1,6 +1,21 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root 'home#index'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get 'home/index'
+  get 'votes/categories', to: 'votes#categories'
+  get 'votes/completions', to: 'votes#completions'
+  get 'entries/categories', to: 'entries#categories'
+  get 'entries/completions', to: 'entries#completions'
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get '/login', to: 'sessions#new'
+  delete '/logout' => 'sessions#destroy'
+
+  resources :entries, only: [:new, :create, :index, :show]
+  resources :votes, only: [:create]
+  resources :rankings, only: [:index]
+  resources :comments, only: [:index, :show]
+
+  namespace :admin do
+    get 'rankings', to: 'rankings#index'
+  end
 end

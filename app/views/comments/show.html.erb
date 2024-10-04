@@ -1,0 +1,40 @@
+<% set_meta_tags(
+  og: {
+    title: "【#{@entry.title}】への感想です",
+    description: "頂いたすべてのコメントを掲載しています",
+    image: image_url("tokyu.png"),
+    url: request.original_url,
+    type: 'website'
+  },
+  twitter: {
+    card: "summary"
+  }
+) %>
+
+<div class="container mx-auto px-4 py-8 lg:px-8 lg:w-3/4">
+  <h1 class="text-2xl font-bold mb-6 text-center">コメント一覧</h1>
+  <div class="font-semibold ml-3">
+    <p><i class="fa-solid fa-user"></i> <%= @entry.user.name %> さん</p>
+    <p class="whitespace-normal"><i class="fa-solid fa-star"></i> <%= @entry.title %></p>
+  </div>
+  <br>
+  <ul class="space-y-4">
+    <% @entry_comments.each do |comment| %>
+      <li class="bg-gray-100 p-4 rounded-lg shadow-smt">
+        <p class="text-lg"><%= comment.comment %></p>
+      </li>
+    <% end %>
+  </ul>
+  <br>
+  <div class="text-center">
+    <p class="text-xs">結果をシェアする</p>
+    <%= link_to "https://twitter.com/intent/tweet?text=【#{ @entry.title }は感想をもらったよ！】&hashtags=tqrk15&url=#{ comment_url(@entry) }", target: "_blank" do %>
+      <i class="fa-brands fa-square-x-twitter"></i>
+    <% end %>
+  </div>
+  <div class="text-center mt-8">
+    <%= link_to "戻る", comments_path %>
+  </div>
+</div>
+<br>
+<br>
