@@ -8,11 +8,11 @@ class Admin::RankingsController < ApplicationController
     categories = %w[food drink lt]
     @rankings = {}
 
-    categories.each do |category|
-      @rankings[category] = {
+    @rankings = categories.index_with do |category|
+      {
         single: Vote.ranking_by_single(category),
         total: Vote.ranking_by_total_votes(category)
       }
-    end
   end
+end
 end
