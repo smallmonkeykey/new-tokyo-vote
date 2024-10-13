@@ -33,6 +33,15 @@ class Vote < ApplicationRecord
       .order('entries.user_id')
   end
 
+  def self.fetch_group_comment(category_name)
+    joins(entry: %i[category user])
+      .select('entry_id, entries.title, users.name, categories.category_name')
+      .where.not(comment: [nil, ''])
+      .where(categories: { category_name: })
+      .group(:entry_id, 'entries.title', 'users.name', 'categories.category_name')
+      .order('categories.category_name ASC')
+  end
+
   private
 
   def cannot_vote_for_same_entry

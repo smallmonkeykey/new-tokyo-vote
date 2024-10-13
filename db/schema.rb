@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2024_09_26_014752) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -46,8 +49,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_26_014752) do
   end
 
   create_table "entries", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "category_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "category_id", null: false
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -64,12 +67,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_26_014752) do
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
     t.string "session_digest"
-    t.index ["provider", "uid"], name: "index_users_on_provider,_and_uid", unique: true
+    t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
   end
 
   create_table "votes", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "entry_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "entry_id", null: false
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
