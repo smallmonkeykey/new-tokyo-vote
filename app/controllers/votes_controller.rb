@@ -27,9 +27,9 @@ class VotesController < ApplicationController
   end
 
   def close_voting
-    return unless Time.current >= CLOSING_TIME
-
-    redirect_to rankings_path, alert: 'この時間は投票できません'
+    if Vote.closed?
+      redirect_to rankings_path, alert: 'この時間は投票できません'
+    end
   end
 
   def check_vote_limit
