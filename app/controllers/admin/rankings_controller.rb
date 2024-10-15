@@ -13,6 +13,6 @@ class Admin::RankingsController < ApplicationController
         single: Vote.ranking_by_single(category),
         total: Vote.ranking_by_total_votes(category)
       }
+    end
   end
-end
 end
