@@ -24,6 +24,11 @@ test:
   <<: *default
   database: Tokyuvote_test
 
+staging:
+  <<: *default
+  adapter: postgresql
+  url: <%= ENV['DATABASE_URL'] %>
+
 production:
   <<: *default
   adapter: postgresql
