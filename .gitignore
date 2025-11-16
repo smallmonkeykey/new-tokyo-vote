@@ -53,3 +53,5 @@
 
 # .tfvars files
 *.tfvars
+
+/config/credentials/staging.key
