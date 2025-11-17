@@ -24,8 +24,8 @@
         <i class="fa-regular fa-lightbulb text-blue-500 text-xl"></i><strong class="text-blue-600"> 投票結果</strong><br>
         集計後、投票結果を見ることができます。<br>
         <div class="underline mt-1 text-sm">
-          <% if Vote.closed? %>
-            <%= link_to "投票のコメントを公開中です", comments_path, class: "text-blue-600" %>
+          <% if after_closing_time? %>
+            <%= link_to "投票のコメントを公開中です", event_comments_path(@event), class: "text-blue-600" %>
           <% end %>
         </div>
       </span>

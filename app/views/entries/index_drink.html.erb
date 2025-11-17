@@ -30,7 +30,7 @@
             </div>
           </div>
           <div class="mt-4 sm:mt-0 sm:ml-5 w-full sm:w-auto text-center">
-            <%= link_to '選択する', entry_path(entry, category: 'drink'), class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 inline-block min-w-[120px] text-center ml-5" %>
+            <%= link_to '選択する', event_entry_path(@event, entry, category: 'drink'), class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 inline-block min-w-[120px] text-center ml-5" %>
           </div>
         </li>
       <% end %>
@@ -41,7 +41,7 @@
 </div>
 </div>
 <div class="mt-8 text-center">
-  <%= link_to votes_categories_path, class: 'btn btn-primary' do %>
+  <%= link_to event_votes_categories_path(@event), class: 'btn btn-primary' do %>
     <i class="fa-solid fa-rotate-left"></i> 戻る
   <% end %>
 </div>
