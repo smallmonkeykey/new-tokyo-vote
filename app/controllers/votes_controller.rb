@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class VotesController < ApplicationController
+  MAX_VOTES_PER_CATEGORY = 3
+
   before_action :set_event
   before_action :close_voting, only: [:create]
   before_action :check_vote_limit, only: [:create]
@@ -35,13 +37,13 @@ class VotesController < ApplicationController
 
   def check_vote_limit
     votes_count = current_user.votes
-                              .joins(entry: :category)
-                              .where(entries: { event_id: @event.id })
-                              .where(categories: { category_name: params[:category] }).count
+                              .for_event(@event.id)
+                              .for_category(params[:category])
+                              .count
 
-    if votes_count >= 3
-      redirect_to root_path, alert: '既に3票投票しています。これ以上投票できません。'
-    end
+    return unless votes_count >= MAX_VOTES_PER_CATEGORY
+
+    redirect_to event_path(@event), alert: '既に3票投票しています。これ以上投票できません。'
   end
 
   def set_event
