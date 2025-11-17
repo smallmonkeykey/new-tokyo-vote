@@ -6,6 +6,7 @@ class VotesController < ApplicationController
   before_action :set_event
   before_action :close_voting, only: [:create]
   before_action :check_vote_limit, only: [:create]
+  before_action :check_event_status
 
   def categories; end
 

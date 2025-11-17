@@ -4,6 +4,8 @@ class EntriesController < ApplicationController
   include AdminHelper
   before_action :set_event
   before_action :require_admin, only: [:new], if: proc { params[:category] == 'lt' }
+  before_action :check_entry_period, only: %i[new create]
+  before_action :check_event_status
 
   def categories; end
 
@@ -18,7 +20,7 @@ class EntriesController < ApplicationController
     @entry = current_user.entries.new(entry_params.merge(event: @event))
     category = params[:category]
     if @entry.save
-      redirect_to entries_completions_path(@event, category:)
+      redirect_to event_entries_completions_path(@event, category:)
     else
       redirect_to new_event_entry_path(@event, category:), flash: { error: @entry.errors.full_messages.to_sentence }
     end
@@ -61,5 +63,11 @@ class EntriesController < ApplicationController
 
   def set_event
     @event = Event.find(params[:event_id])
+  end
+
+  def check_entry_period
+    return if params[:category] == 'lt'
+
+    redirect_to event_path(@event), alert: '現在、エントリーは受付けていません。' if !@event.open?
   end
 end
