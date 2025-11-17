@@ -6,6 +6,7 @@ class Entry < ApplicationRecord
 
   belongs_to :user
   belongs_to :category
+  belongs_to :event
   validates :title, presence: true
   validates :description, length: { maximum: 300 }
   validate :image_type
