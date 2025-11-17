@@ -28,9 +28,9 @@ class VotesController < ApplicationController
   end
 
   def close_voting
-    if Vote.closed?
-      redirect_to rankings_path, alert: 'この時間は投票できません'
-    end
+    return if @event.open?
+
+    redirect_to event_rankings_path(@event), alert: 'この時間は投票できません'
   end
 
   def check_vote_limit

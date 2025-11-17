@@ -2,7 +2,8 @@
 
 class RankingsController < ApplicationController
   before_action :set_event
-  before_action :check_closing_time, only: [:index]
+  before_action :check_closed_event, only: [:index]
+
   def index
     @category = params[:category].presence || 'food'
     votes = Vote.for_event(@event.id).for_category(@category)
@@ -18,9 +19,9 @@ class RankingsController < ApplicationController
     @event = Event.find(params[:event_id])
   end
 
-  def check_closing_time
-    if !Vote.closed?
-      redirect_to root_path, alert: 'このページは現在公開されていません。'
-    end
+  def check_closed_event
+    return if @event.closed?
+
+    redirect_to event_path(@event), alert: 'このページは現在公開されていません。'
   end
 end

@@ -3,7 +3,7 @@
 class CommentsController < ApplicationController
   before_action :set_event
   skip_before_action :logged_in_user, only: %i[index show]
-  before_action :check_closing_time
+  before_action :check_closed_event
 
   def index
     votes = Vote.for_event(@event.id)
@@ -19,10 +19,10 @@ class CommentsController < ApplicationController
 
   private
 
-  def check_closing_time
-    return unless Time.current < CLOSING_TIME
+  def check_closed_event
+    return if @event.closed?
 
-    redirect_to root_path, alert: 'このページは現在公開されていません。'
+    redirect_to event_path(@event), alert: 'このページは現在公開されていません。'
   end
 
   def set_event
