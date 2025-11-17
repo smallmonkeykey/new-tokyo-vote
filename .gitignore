@@ -44,7 +44,7 @@
 /config/credentials/test.key
 config/credentials/*.key
 
-
+/config/credentials/development.yml.enc
 #  Local .terraform directories
 **/.terraform/*
 
