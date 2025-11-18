@@ -17,6 +17,6 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    get 'rankings', to: 'rankings#index'
+    resources :events, only: [:index, :new, :create, :show, :update]
   end
 end

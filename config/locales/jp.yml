@@ -8,3 +8,16 @@ ja:
         image: 画像
       vote:
         comment: コメント
+
+  enums:
+    event:
+      status:
+        preparing: "準備中"
+        open: "公開中"
+        counting: "集計中"
+        closed: "結果公開"
+
+  categories:
+    food: "飯王"
+    drink: "酒王"
+    lt: "LT王"
