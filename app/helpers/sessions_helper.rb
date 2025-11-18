@@ -1,13 +1,6 @@
 # frozen_string_literal: true
 
 module SessionsHelper
-  def logged_in_user
-    return if logged_in?
-
-    flash[:danger] = 'ログインしてください'
-    redirect_to login_url, status: :see_other
-  end
-
   def logged_in?
     !current_user.nil?
   end

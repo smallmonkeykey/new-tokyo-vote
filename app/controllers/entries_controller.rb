@@ -31,7 +31,7 @@ class EntriesController < ApplicationController
     category = params[:category]
     category_id = Category.find_by(category_name: category).id
     @entries = Entry.with_attached_image.includes(:user).where(category_id:)
-    render_template(category, 'entries')
+    render_template(category, 'index')
   end
 
   def show
