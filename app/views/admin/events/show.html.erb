@@ -1,8 +1,30 @@
 <h1 class="text-2xl font-bold mb-6 text-center">イベントを管理する</h1>
 
+<div class="bg-white p-6 rounded-md shadow mb-8 max-w-2xl mx-auto">
+  <strong>タイトル：</strong><%= @event.title %>
+  <p class="mt-2">
+    <strong>ステータス：</strong>
+    <%= t("enums.event.status.#{@event.status}") %>
+  </p>
+
+  <%= form_with model: @event, url: admin_event_path(@event), method: :patch, class: "mt-4 space-y-3" do |f| %>
+    <div>
+      <%= f.label :status, "ステータスを変更", class: "block font-medium mb-1" %>
+      <%= f.select :status,
+        Event.statuses.keys.map { |status| [t("enums.event.status.#{status}"), status] },
+        {},
+        class: "border border-gray-300 rounded-md p-2 w-full sm:w-60"
+      %>
+    </div>
+
+    <%= f.submit "更新する",
+      class: "bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600" %>
+  <% end %>
+</div>
+
 <div class="max-w-4xl mx-auto px-4">
   <% @rankings.each do |category, rankings| %>
-    <h2 class="text-xl font-semibold mt-10 mb-4"><%= category %> 単品王</h2>
+    <h2 class="text-xl font-semibold mt-10 mb-4"><%= t("categories.#{category}") %> 単品王</h2>
     <div class="overflow-x-auto rounded-lg shadow-sm">
       <table class="min-w-full bg-white border border-gray-300">
         <thead class="bg-gray-100">
@@ -33,7 +55,7 @@
     </div>
 
     <% unless category == 'lt' %>
-      <h2 class="text-xl font-semibold mt-10 mb-4"><%= category %> 合算王</h2>
+      <h2 class="text-xl font-semibold mt-10 mb-4"><%= t("categories.#{category}") %> 合算王</h2>
       <div class="overflow-x-auto rounded-lg shadow-sm">
         <table class="min-w-full bg-white border border-gray-300">
           <thead class="bg-gray-100">
