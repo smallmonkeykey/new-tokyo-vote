@@ -17,6 +17,5 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    get 'rankings', to: 'rankings#index'
   end
 end
