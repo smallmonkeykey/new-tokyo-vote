@@ -5,7 +5,7 @@
       <%= flash[:error] %>
     </div>
   <% end %>
-  <%= form_with model: @entry,url: entries_path, class: "space-y-4" do |form| %>
+  <%= form_with model: @entry,url: event_entries_path(@event), class: "space-y-4" do |form| %>
     <%= form.label :title, "LTのタイトル", class: "block font-medium mb-2" %>
     <%= form.text_field :title, class: "w-full border border-gray-300 rounded-md p-2" %>
     <%= form.hidden_field :category_id, value: @category.id %>
@@ -16,7 +16,7 @@
   <% end %>
 </div>
 <div class="mt-14 text-center">
-  <%= link_to entries_categories_path, class: 'btn btn-primary' do %>
+  <%= link_to event_entries_categories_path(@event), class: 'btn btn-primary' do %>
     <i class="fa-solid fa-rotate-left"></i> 戻る
   <% end %>
 </div>

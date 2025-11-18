@@ -3,7 +3,9 @@
 class SessionsController < ApplicationController
   skip_before_action :logged_in_user, only: %i[new create]
 
-  def new; end
+  def new
+    @event = Event.order(created_at: :desc).first
+  end
 
   def create
     reset_session

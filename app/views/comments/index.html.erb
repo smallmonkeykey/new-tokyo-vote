@@ -8,7 +8,7 @@
             <p class="text-lg font-semibold"><%= "#{group.name}さん" %></p>
             <p class="break-words whitespace-normal"><%= "#{group.title}" %></p>
           </div>
-          <%= link_to "コメントを表示", comment_path(group.entry_id), class: "bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200 ease-in-out mt-2 w-full text-center sm:mt-0 sm:w-auto sm:ml-4" %>
+          <%= link_to "コメントを表示", event_comment_path(@event, group.entry_id), class: "bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200 ease-in-out mt-2 w-full text-center sm:mt-0 sm:w-auto sm:ml-4" %>
         </li>
       <% end %>
     </ul>
@@ -23,7 +23,7 @@
             <p class="text-lg font-semibold"><%= "#{group.name}さん" %></p>
             <p class="break-words whitespace-normal"><%= "#{group.title}" %></p>
           </div>
-          <%= link_to "コメントを表示", comment_path(group.entry_id), class: "bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200 ease-in-out mt-2 w-full text-center sm:mt-0 sm:w-auto sm:ml-4" %>
+          <%= link_to "コメントを表示", event_comment_path(@event, group.entry_id), class: "bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200 ease-in-out mt-2 w-full text-center sm:mt-0 sm:w-auto sm:ml-4" %>
         </li>
       <% end %>
     </ul>
@@ -38,7 +38,7 @@
             <p class="text-lg font-semibold"><%= "#{group.name}さん" %></p>
             <p class="break-words whitespace-normal"><%= "#{group.title}" %></p>
           </div>
-          <%= link_to "コメントを表示", comment_path(group.entry_id), class: "bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200 ease-in-out mt-2 w-full text-center sm:mt-0 sm:w-auto sm:ml-4" %>
+          <%= link_to "コメントを表示", event_comment_path(@event, group.entry_id), class: "bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200 ease-in-out mt-2 w-full text-center sm:mt-0 sm:w-auto sm:ml-4" %>
         </li>
       <% end %>
     </ul>

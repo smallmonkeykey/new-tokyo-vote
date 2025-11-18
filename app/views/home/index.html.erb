@@ -1,24 +1,16 @@
-<div class="px-4 text-center">
-  <h1 class="text-3xl font-bold text-blue-700">TokyuRuby会議15</h1>
-  <p class="mt-4 max-w-[390px] mx-auto sm:max-w-full leading-loose">
-    このアプリでは<br>飯王と酒王への参加登録と<br>
-    各カテゴリー（飯王・酒王・LT王）に<br>それぞれ最大3票まで投票できます。
+<div class="px-6 py-10 text-center">
+  <h1 class="text-3xl font-bold text-gray-700">
+    TokyuRuby会議
+  </h1>
+
+  <p class="mt-6 text-lg text-gray-600 leading-relaxed">
+    まだイベントが作成されていません。<br>
   </p>
-    <div class="text-center">
-  <% if Vote.closed? %>
-    <h2 class="mt-8 text-2xl pb-5">投票結果</h2>
-    <%= link_to rankings_path, class: 'inline-flex items-center justify-center w-12 h-12 bg-blue-500 text-white rounded-full hover:bg-blue-700' do %>
-      <i class="fa-solid fa-ranking-star"></i>
-    <% end %>
-  <% else %>
-    <h2 class="mt-8 text-2xl pb-5">エントリーする</h2>
-    <%= link_to entries_categories_path, class: 'inline-flex items-center justify-center w-12 h-12 bg-blue-500 text-white rounded-full hover:bg-blue-700' do %>
-      <i class="fa-solid fa-person fa-xl"></i>
-    <% end %>
-    <h2 class="mt-8 text-2xl pb-5">投票する</h2>
-    <%= link_to votes_categories_path, class: 'inline-flex items-center justify-center w-12 h-12 bg-blue-500 text-white rounded-full hover:bg-blue-700' do %>
-      <i class="fa-solid fa-hand-holding-heart"></i>
-    <% end %>
+
+  <% if current_user.admin? %>
+    <div class="mt-8">
+      <%= link_to "管理画面へ", admin_events_path,
+        class: "inline-block px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700" %>
+    </div>
   <% end %>
-  </div>
-</div>
+</div

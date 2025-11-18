@@ -1,10 +1,10 @@
 <div class="max-w-lg mx-auto p-4 bg-white shadow-sm sm:shadow-md rounded-md">
   <h1 class="text-3xl font-bold mb-6 text-center">飯王に登録</h1>
   <div class="text-xs">
-    <% if user_entries_by_category(@category.category_name).any? %>
+    <% if user_entries_by_category(@event, @category.category_name).any? %>
       <i class="fa-solid fa-check"></i> 登録済みの作品<br>
       <ul>
-        <% user_entries_by_category(@category.category_name).each do |entry| %>
+        <% user_entries_by_category(@event, @category.category_name).each do |entry| %>
           <li><%= entry.title %></li>
         <% end %>
       </ul>
@@ -17,7 +17,7 @@
     </div>
   <% end %>
 
-  <%= form_with model: @entry, url: entries_path, class: "space-y-4" do |form| %>
+  <%= form_with model: @entry, url: event_entries_path(@event), class: "space-y-4" do |form| %>
     <%= form.label :title, "作品名（食べ物の名前）", class: "block font-medium mb-2" %>
     <%= form.text_field :title, class: "w-full border border-gray-300 rounded-md p-2" %>
 
@@ -37,7 +37,7 @@
 </div>
 
 <div class="mt-14 text-center">
-  <%= link_to entries_categories_path, class: 'btn btn-primary' do %>
+  <%= link_to event_entries_categories_path(@event), class: 'btn btn-primary' do %>
     <i class="fa-solid fa-rotate-left"></i> 戻る
   <% end %>
 </div>
