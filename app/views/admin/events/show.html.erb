@@ -1,0 +1,68 @@
+<h1 class="text-2xl font-bold mb-6 text-center">イベントを管理する</h1>
+
+<div class="max-w-4xl mx-auto px-4">
+  <% @rankings.each do |category, rankings| %>
+    <h2 class="text-xl font-semibold mt-10 mb-4"><%= category %> 単品王</h2>
+    <div class="overflow-x-auto rounded-lg shadow-sm">
+      <table class="min-w-full bg-white border border-gray-300">
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="py-2 px-2 md:px-4 border-b text-left text-sm md:text-base">タイトル</th>
+            <th class="py-2 px-2 md:px-4 border-b text-left text-sm md:text-base">名前</th>
+            <th class="py-2 px-2 md:px-4 border-b text-right text-sm md:text-base">票数</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if rankings[:single].present? %>
+            <% rankings[:single].each do |ranking| %>
+              <tr class="border-b hover:bg-gray-50">
+                <td class="py-2 px-2 md:px-4 text-sm md:text-base"><%= ranking.title %></td>
+                <td class="py-2 px-2 md:px-4 text-sm md:text-base"><%= ranking.name %></td>
+                <td class="py-2 px-2 md:px-4 text-right font-bold text-yellow-800 bg-yellow-50 rounded-md">
+                  <%= ranking.votes_count %>
+                </td>
+              </tr>
+            <% end %>
+          <% else %>
+            <tr>
+              <td class="py-4 px-4 text-gray-500 text-center" colspan="3">データがありません</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <% unless category == 'lt' %>
+      <h2 class="text-xl font-semibold mt-10 mb-4"><%= category %> 合算王</h2>
+      <div class="overflow-x-auto rounded-lg shadow-sm">
+        <table class="min-w-full bg-white border border-gray-300">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="py-2 px-2 md:px-4 border-b text-left text-sm md:text-base">タイトル</th>
+              <th class="py-2 px-2 md:px-4 border-b text-left text-sm md:text-base">名前</th>
+              <th class="py-2 px-2 md:px-4 border-b text-right text-sm md:text-base">票数</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if rankings[:total].present? %>
+              <% rankings[:total].each do |ranking| %>
+                <tr class="border-b hover:bg-gray-50">
+                  <td class="py-2 px-2 md:px-4 text-sm md:text-base"><%= ranking.titles %></td>
+                  <td class="py-2 px-2 md:px-4 text-sm md:text-base"><%= ranking.name %></td>
+                  <td class="py-2 px-2 md:px-4 text-right font-bold text-blue-900 bg-blue-50 rounded-md">
+                    <%= ranking.votes_count %>
+                  </td>
+                </tr>
+              <% end %>
+            <% else %>
+              <tr>
+                <td class="py-4 px-4 text-gray-500 text-center" colspan="3">データがありません</td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<br><br>
