@@ -1,0 +1,24 @@
+<div class="px-4 text-center">
+  <h1 class="text-3xl font-bold text-blue-700"><%= @event.title %></h1>
+  <p class="mt-4 max-w-[390px] mx-auto sm:max-w-full leading-loose">
+    このアプリでは<br>飯王と酒王への参加登録と<br>
+    各カテゴリー（飯王・酒王・LT王）に<br>それぞれ最大3票まで投票できます。
+  </p>
+    <div class="text-center">
+  <% if @event.closed? %>
+    <h2 class="mt-8 text-2xl pb-5">投票結果</h2>
+    <%= link_to event_rankings_path(@event), class: 'inline-flex items-center justify-center w-12 h-12 bg-blue-500 text-white rounded-full hover:bg-blue-700' do %>
+      <i class="fa-solid fa-ranking-star"></i>
+    <% end %>
+  <% else %>
+    <h2 class="mt-8 text-2xl pb-5">エントリーする</h2>
+    <%= link_to event_entries_categories_path(@event), class: 'inline-flex items-center justify-center w-12 h-12 bg-blue-500 text-white rounded-full hover:bg-blue-700' do %>
+      <i class="fa-solid fa-person fa-xl"></i>
+    <% end %>
+    <h2 class="mt-8 text-2xl pb-5">投票する</h2>
+    <%= link_to event_votes_categories_path(@event), class: 'inline-flex items-center justify-center w-12 h-12 bg-blue-500 text-white rounded-full hover:bg-blue-700' do %>
+      <i class="fa-solid fa-hand-holding-heart"></i>
+    <% end %>
+  <% end %>
+  </div>
+</div>

@@ -1,9 +1,9 @@
 <div class="max-w-4xl mx-auto p-6 bg-white rounded-md shadow-md">
   <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">投票結果</h1>
   <div class="mb-6 flex justify-center space-x-4">
-    <%= link_to '飯王', rankings_path(category: 'food'), class: "text-white px-4 py-2 rounded-md #{( params[:category] == 'food' || params[:category].nil? ) ? 'bg-blue-500' : 'bg-slate-300'}" %>
-    <%= link_to '酒王', rankings_path(category: 'drink'), class: "text-white px-4 py-2 rounded-md #{params[:category] == 'drink' ? 'bg-green-500' : 'bg-slate-300'}" %>
-    <%= link_to 'LT王', rankings_path(category: 'lt'), class: "text-white px-4 py-2 rounded-md #{params[:category] == 'lt' ? 'bg-orange-500' : 'bg-slate-300'}" %>
+    <%= link_to '飯王', event_rankings_path(@event, category: 'food'), class: "text-white px-4 py-2 rounded-md #{( params[:category] == 'food' || params[:category].nil? ) ? 'bg-blue-500' : 'bg-slate-300'}" %>
+    <%= link_to '酒王', event_rankings_path(@event, category: 'drink'), class: "text-white px-4 py-2 rounded-md #{params[:category] == 'drink' ? 'bg-green-500' : 'bg-slate-300'}" %>
+    <%= link_to 'LT王', event_rankings_path(@event, category: 'lt'), class: "text-white px-4 py-2 rounded-md #{params[:category] == 'lt' ? 'bg-orange-500' : 'bg-slate-300'}" %>
   </div>
   <h2 class="text-2xl font-semibold mb-4 text-gray-800">単品王</h2>
   <% @rankings.each_with_index do |ranking, index| %>

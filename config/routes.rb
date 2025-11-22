@@ -1,21 +1,22 @@
 Rails.application.routes.draw do
   root 'home#index'
-
-  get 'home/index'
-  get 'votes/categories', to: 'votes#categories'
-  get 'votes/completions', to: 'votes#completions'
-  get 'entries/categories', to: 'entries#categories'
-  get 'entries/completions', to: 'entries#completions'
   get 'auth/:provider/callback', to: 'sessions#create'
   get '/login', to: 'sessions#new'
   delete '/logout' => 'sessions#destroy'
 
-  resources :entries, only: [:new, :create, :index, :show]
-  resources :votes, only: [:create]
-  resources :rankings, only: [:index]
-  resources :comments, only: [:index, :show]
+  resources :events, only: [:show] do
+    get 'votes/categories', to: 'votes#categories'
+    get 'votes/completions', to: 'votes#completions'
+    get 'entries/categories', to: 'entries#categories'
+    get 'entries/completions', to: 'entries#completions'
+
+    resources :entries, only: [:new, :create, :index, :show]
+    resources :votes, only: [:create]
+    resources :rankings, only: [:index]
+    resources :comments, only: [:index, :show]
+  end
 
   namespace :admin do
-    get 'rankings', to: 'rankings#index'
+    resources :events, only: [:index, :new, :create, :show, :update]
   end
 end
